@@ -22,7 +22,7 @@ void plateau_initialiser(plateau_siam* plateau)
     //     [0]   [1]   [2]   [3]   [4]
     //
 
-
+    assert(plateau!=NULL);
     int kx=0;
     for(kx=0 ; kx<NBR_CASES ; ++kx)
     {
@@ -55,7 +55,7 @@ int plateau_etre_integre(const plateau_siam* plateau)
     assert(plateau!=NULL);
     
     int kx=0;
-    int ro=0, el=0, rh=0;
+    int compteur_ro=0, compteur_el=0, compteur_rh=0;
     for(kx=0;kx<NBR_CASES;++kx)
     {
         int ky=0;
@@ -63,24 +63,24 @@ int plateau_etre_integre(const plateau_siam* plateau)
         {
             assert(plateau_obtenir_piece_info(plateau,kx,ky)!=NULL);
             if(plateau_obtenir_piece_info(plateau,kx,ky)->type==rocher)
-                ro++;
+                compteur_ro++;
             if(plateau_obtenir_piece_info(plateau,kx,ky)->type==elephant)
-                el++;
+                compteur_el++;
             if(plateau_obtenir_piece_info(plateau,kx,ky)->type==rhinoceros)
-                rh++;
+                compteur_rh++;
         }
     }
     
     int condition_rocher=0;
-    if(ro>0 &&ro<=3)
+    if(compteur_ro>0 && compteur_ro<=3)
         condition_rocher=1;
     
     int condition_elephant=0;
-    if(el>=0 && el<=5)
+    if(compteur_el>=0 && compteur_el<=5)
         condition_elephant=1;
     
       int condition_rhinoceros=0;
-    if(rh>=0 && rh<=5)
+    if(compteur_rh>=0 && compteur_rh<=5)
         condition_rhinoceros=1;  
     
     if(condition_elephant==1 && condition_rhinoceros==1 && condition_rocher==1)
@@ -158,11 +158,11 @@ int plateau_exister_piece(const plateau_siam* plateau,int x,int y)
   
   if(existence_piece->type==case_vide)
   {
-    return 0;
+    return 1;
   }
   else
   {
-    return 1;
+    return 0;
   }  
 }
 
