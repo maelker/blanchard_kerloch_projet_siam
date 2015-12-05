@@ -6,9 +6,14 @@
 
 int coordonnees_etre_dans_plateau(int x,int y)
 {
-    if((x>=0 && x<NBR_CASES) && (y>=0 && y<NBR_CASES))
-        return 1;
+  if((x>=0 && x<NBR_CASES) && (y>=0 && y<NBR_CASES))
+  {
+    return 1;
+  }
+  else
+  {
     return 0;
+  }
 }
 
 

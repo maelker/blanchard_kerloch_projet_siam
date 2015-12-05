@@ -71,7 +71,7 @@ void jeu_afficher(const jeu_siam* jeu)
 
 
 
-type_piece jeu_obtenir_type_animal_courant(const jeu_siam* jeu)
+/*type_piece jeu_obtenir_type_animal_courant(const jeu_siam* jeu)
 {
     
     assert(jeu!=NULL);
@@ -92,5 +92,5 @@ type_piece jeu_obtenir_type_animal_courant(const jeu_siam* jeu)
             return rhinoceros;
     }
     
-}
+}*/
 

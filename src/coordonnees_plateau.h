@@ -86,7 +86,17 @@ int coordonnees_etre_dans_plateau(int x,int y);
 int coordonnees_etre_bordure_plateau(int x,int y);
 
 /**
- * documentation a ecrire
+ * Fonction coordonnees_appliquer_deplacement
+ * **************************
+   Calul des nouvelles coordonnees a partir d'une direction donnee
+ * Cette direction peut etre haut ou bas ce qui entraine une modification de y
+ * ou cette direction peut etre gauche ou droite, ce qui entraine une modification de x
+ *
+ * Necessite:
+	- deux coordonnees entieres
+	- une orientation integre de la piece
+ * Garantie:
+	- une modification de x ou y en fonction de l'orientation donnee
  */
 void coordonnees_appliquer_deplacement(int* x,int* y,orientation_deplacement orientation);
 
