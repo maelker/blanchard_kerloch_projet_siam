@@ -58,6 +58,7 @@ int jeu_verifier_type_piece_a_modifier(const jeu_siam* jeu,int x,int y)
 {
     assert(jeu!=NULL);
     assert(jeu_etre_integre(jeu)==1);
+    assert(coordonnees_etre_dans_plateau(x0,y0)==1);
     const plateau_siam *plateau=NULL;
     const piece_siam *info_piece=plateau_obtenir_piece_info(plateau,x,y);
     if (info_piece->type==elephant && jeu->joueur==0)
@@ -66,7 +67,7 @@ int jeu_verifier_type_piece_a_modifier(const jeu_siam* jeu,int x,int y)
     }
     if (info_piece->type==rhinoceros && jeu->joueur==1)
     {
-      return 0;
+      return 1;
     }
     return 0;
 
@@ -87,6 +88,8 @@ type_piece jeu_obtenir_type_animal_courant(const jeu_siam* jeu)
 {
   
   assert(jeu!=NULL);
+  assert(jeu_etre_integre(jeu)==1);
+  
   if(jeu->joueur==0)
   {
     return elephant;

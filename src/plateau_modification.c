@@ -29,6 +29,7 @@ void plateau_modification_introduire_piece(plateau_siam* plateau,
 int plateau_modification_changer_orientation_piece_etre_possible(const plateau_siam* plateau,int x0,int y0,orientation_deplacement orientation)
 {
   assert(plateau!=NULL);
+  assert(plateau_etre_integre(plateau)==1);
   assert(coordonnees_etre_dans_plateau(x0,y0)==1);
   assert(orientation_etre_integre_deplacement(orientation)==1);
   
@@ -59,8 +60,6 @@ int plateau_modification_changer_orientation_piece_etre_possible(const plateau_s
 
 void plateau_modification_changer_orientation_piece(plateau_siam* plateau,int x0,int y0,orientation_deplacement orientation)
 {
-    assert(plateau!=NULL);
-    assert(coordonnees_etre_dans_plateau(x0,y0)==1);
     assert(plateau_modification_changer_orientation_piece_etre_possible(plateau,x0,y0,orientation)==1);
     
     piece_siam* info_piece=plateau_obtenir_piece(plateau,x0,y0); //renvoie type et orientation de piece
