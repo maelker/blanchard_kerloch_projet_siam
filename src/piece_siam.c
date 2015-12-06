@@ -43,6 +43,7 @@ void piece_initialiser(piece_siam* piece)
 int piece_etre_animal(const piece_siam* piece)
 {
     assert(piece!=NULL);
+    assert(piece_etre_integre(piece)==1);
     if (piece->type<2)
         return 1;
     else
@@ -53,6 +54,8 @@ int piece_etre_animal(const piece_siam* piece)
 int piece_etre_rocher(const piece_siam* piece)
 {
     assert(piece!=NULL);
+    assert(piece_etre_integre(piece)==1);
+    
     if (piece->type==2)
         return 1;
     else
@@ -63,6 +66,8 @@ int piece_etre_rocher(const piece_siam* piece)
 int piece_etre_case_vide(const piece_siam* piece)
 {
     assert(piece!=NULL);
+    assert(piece_etre_integre(piece)==1);
+    
     if (piece->type==3)
         return 1;
     else
@@ -73,11 +78,11 @@ int piece_etre_case_vide(const piece_siam* piece)
 void piece_definir(piece_siam* piece,type_piece type,orientation_deplacement orientation)
 {
     assert(piece!=NULL);
+    assert(piece_etre_integre(piece)==1);
     assert(type_etre_integre(type));
     assert(orientation_etre_integre(orientation));
     piece->type=type;
     piece->orientation=orientation;
-    piece_etre_integre(piece);
 }
 
 
