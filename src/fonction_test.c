@@ -133,9 +133,10 @@ void test_piece_etre_animal()
 {
     puts("\t\tTest piece_etre_animal");
     
-    piece_siam piece_test; // initialisation d'une piece test elephant avec une direction haut.
+    piece_siam piece_test; 
     piece_siam *p=NULL; // définis un pointeur p qui pointe la piece test pieceeh.
     p=&piece_test; // le pointeur p pointe la piece
+    piece_test.orientation=haut;
     
     int i=0;
     for(i=0;i<2;i++)
@@ -155,9 +156,10 @@ void test_piece_etre_rocher()
 {
     puts("\t\tTest piece_etre_rocher");
     
-    piece_siam piece_test; // initialisation d'une piece test elephant avec une direction haut.
+    piece_siam piece_test; // 
     piece_siam *p=NULL; // définis un pointeur p qui pointe la piece test pieceeh.
     p=&piece_test; // le pointeur p pointe la piece
+    piece_test.orientation=aucune_orientation;
     
     
     int i=2; // 2 correspond à un rocher dans l'énumeration.
@@ -178,7 +180,7 @@ void test_piece_etre_case_vide()
     piece_siam piece_test; // initialisation d'une piece test elephant avec une direction haut.
     piece_siam *p=NULL; // définis un pointeur p qui pointe la piece test pieceeh.
     p=&piece_test; // le pointeur p pointe la piece
-    
+    piece_test.orientation=aucune_orientation;
     
     int i=3; // 3 correspond à une case vide dans l'énumeration.
     piece_test.type=i;

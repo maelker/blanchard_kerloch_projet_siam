@@ -43,7 +43,9 @@ void piece_initialiser(piece_siam* piece)
 int piece_etre_animal(const piece_siam* piece)
 {
     assert(piece!=NULL);
+    printf("%d\n",piece->type); 
     assert(piece_etre_integre(piece)==1);
+    
     if (piece->type<2)
         return 1;
     else

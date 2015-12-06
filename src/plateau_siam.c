@@ -54,6 +54,7 @@ int plateau_etre_integre(const plateau_siam* plateau)
     
     assert(plateau!=NULL);
     
+    
     int kx=0;
     int compteur_ro=0, compteur_el=0, compteur_rh=0;
     for(kx=0;kx<NBR_CASES;++kx)
@@ -61,7 +62,12 @@ int plateau_etre_integre(const plateau_siam* plateau)
         int ky=0;
         for(ky=0;ky<NBR_CASES;++ky)
         {
-            assert(plateau_obtenir_piece_info(plateau,kx,ky)!=NULL);
+	    const piece_siam *info_piece=plateau_obtenir_piece_info(plateau,kx,ky);
+            assert(info_piece!=NULL);
+	    if (piece_etre_integre(info_piece)==0)
+	    {
+	      return 0;
+	    }
             if(plateau_obtenir_piece_info(plateau,kx,ky)->type==rocher)
                 compteur_ro++;
             if(plateau_obtenir_piece_info(plateau,kx,ky)->type==elephant)
@@ -97,8 +103,7 @@ piece_siam* plateau_obtenir_piece(plateau_siam* plateau,int x,int y)
  * c'est à dire avec des coordonnees en x et y <5 (entree 0 et 5, 5 exclu))
  */
  assert(plateau!=NULL);
- assert(x>=0 && x <5);
- assert(y>=0 && y <5);
+ assert(coordonnees_etre_dans_plateau(x,y)==1);
  
  return &(plateau->piece[x][y]); // retourne la piece située en (x,y) sur le plateau
 }
@@ -111,8 +116,7 @@ const piece_siam* plateau_obtenir_piece_info(const plateau_siam* plateau,int x,i
  * c'est à dire avec des coordonnees en x et y <5 (entree 0 et 5, 5 exclu))
  */
  assert(plateau!=NULL);
- assert(x>=0 && x <5);
- assert(y>=0 && y <5);
+ assert(coordonnees_etre_dans_plateau(x,y)==1);
  
  return &(plateau->piece[x][y]); // retourne la piece située en (x,y) sur le plateau 
 }
@@ -155,8 +159,9 @@ int plateau_exister_piece(const plateau_siam* plateau,int x,int y)
   const piece_siam* existence_piece=plateau_obtenir_piece_info(plateau,x,y);
   
   assert(plateau!=NULL);
+  assert(coordonnees_etre_dans_plateau(x,y)==1);
   
-  if(existence_piece->type==case_vide)
+  if(existence_piece->type!=case_vide)
   {
     return 1;
   }
