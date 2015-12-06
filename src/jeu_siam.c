@@ -58,7 +58,7 @@ int jeu_verifier_type_piece_a_modifier(const jeu_siam* jeu,int x,int y)
 {
     assert(jeu!=NULL);
     assert(jeu_etre_integre(jeu)==1);
-    assert(coordonnees_etre_dans_plateau(x0,y0)==1);
+    assert(coordonnees_etre_dans_plateau(x,y)==1);
     const plateau_siam *plateau=NULL;
     const piece_siam *info_piece=plateau_obtenir_piece_info(plateau,x,y);
     if (info_piece->type==elephant && jeu->joueur==0)
