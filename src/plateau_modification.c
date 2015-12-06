@@ -13,7 +13,13 @@ int plateau_modification_introduire_piece_etre_possible(const plateau_siam* plat
                                                         type_piece type,
                                                         orientation_deplacement orientation)
 {
-    return 1; //coder cette fonction
+  /*assert(plateau!=NULL);
+  assert(plateau_etre_integre(plateau)==1);
+  assert(coordonnees_etre_dans_plateau(x0,y0)==1);
+  assert(coordonnees_etre_bordure_plateau(x,y)==1);
+  assert(orientation_etre_integre_deplacement(orientation)==1);*/
+  return 1;
+  
 }
 
 
