@@ -5,8 +5,6 @@
 #include <stdio.h>
 #include <string.h>
 
-// Salut
-
 int piece_etre_integre(const piece_siam* piece)
 {
     assert(piece!=NULL);
