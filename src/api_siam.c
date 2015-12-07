@@ -8,13 +8,35 @@
 #include <stdio.h>
 
 coup_jeu api_siam_tenter_introduire_nouvelle_piece_si_possible(jeu_siam* jeu,
-                                                               int x,int y,
-                                                               orientation_deplacement orientation)
+							       int x,int y,
+							       orientation_deplacement orientation)
 {
-    //coder cette fonction
-    coup_jeu coup;
-    coup_jeu_initialiser(&coup);
-    return coup;
+  assert(jeu!=NULL);
+  assert(jeu_etre_integre(jeu)==1);
+  coup_jeu coup;
+  coup_jeu_initialiser(&coup);
+  if(coordonnees_etre_dans_plateau(x,y)==1);
+  {
+    if(coordonnees_etre_bordure_plateau(x,y)==1)
+    {
+      if(plateau_exister_piece(&(jeu->plateau),x,y)==1)
+      {
+	piece_siam *piece_info=plateau_obtenir_piece(&(jeu->plateau),x,y); 
+	if (joueur_obtenir_animal(&(jeu->joueur)==0)) //joueur 0 dc elephant
+	{
+	  piece_info->type=elephant;
+	  coup.valide=1;
+	}
+	else
+	{
+	  piece_info->type=rhinoceros;
+	  coup.valide=1;
+	}
+      }
+    }
+  }
+  
+  return coup;
 }
 
 
@@ -24,9 +46,12 @@ coup_jeu api_siam_tenter_deplacer_piece_si_possible(jeu_siam* jeu,
                                                     orientation_deplacement deplacement,
                                                     orientation_deplacement orientation)
 {
-    //coder cette fonction
+    
     coup_jeu coup;
     coup_jeu_initialiser(&coup);
+    
+    
+    
     return coup;
 }
 
