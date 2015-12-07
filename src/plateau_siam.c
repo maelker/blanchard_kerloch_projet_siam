@@ -115,13 +115,11 @@ const piece_siam* plateau_obtenir_piece_info(const plateau_siam* plateau,int x,i
  * Puis, vérification que la case demandee est bien une case du tableau 
  * c'est à dire avec des coordonnees en x et y <5 (entree 0 et 5, 5 exclu))
  */
- assert(plateau!=NULL);
+//  assert(plateau!=NULL);
  assert(coordonnees_etre_dans_plateau(x,y)==1);
- 
- return &(plateau->piece[x][y]); // retourne la piece située en (x,y) sur le plateau 
+ return &(plateau->piece[x][y]); // retourne la piece située en (x,y) sur le plateau.
+    
 }
-
-
 
 int plateau_denombrer_type(const plateau_siam* plateau,type_piece type)
 {
@@ -170,7 +168,6 @@ int plateau_exister_piece(const plateau_siam* plateau,int x,int y)
     return 0;
   }  
 }
-
 
 void plateau_afficher(const plateau_siam* plateau)
 {

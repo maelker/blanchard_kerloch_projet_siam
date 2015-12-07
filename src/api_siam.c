@@ -48,7 +48,6 @@ coup_jeu api_siam_tenter_changer_orientation_piece_si_possible(jeu_siam* jeu,int
       {
 	coup.valide=1;
       }
-      
     }
   }
   return coup;

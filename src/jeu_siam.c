@@ -34,7 +34,11 @@ void jeu_initialiser(jeu_siam* jeu)
     //initialise le plateau
     //initialise le joueur
 
+    
     plateau_initialiser(&jeu->plateau);
+    piece_siam* p1=plateau_obtenir_piece(&jeu->plateau,0,4);
+    p1->type=elephant;
+    p1->orientation=droite;
     jeu->joueur=0;
 }
 
@@ -59,13 +63,13 @@ int jeu_verifier_type_piece_a_modifier(const jeu_siam* jeu,int x,int y)
     assert(jeu!=NULL);
     assert(jeu_etre_integre(jeu)==1);
     assert(coordonnees_etre_dans_plateau(x,y)==1);
-    const plateau_siam *plateau=NULL;
-    const piece_siam *info_piece=plateau_obtenir_piece_info(plateau,x,y);
-    if (info_piece->type==elephant && jeu->joueur==0)
+
+    const piece_siam *info_piece=plateau_obtenir_piece_info(&jeu->plateau,x,y);
+    if ((info_piece->type==elephant) && (jeu->joueur==0))
     {
       return 1;
     }
-    if (info_piece->type==rhinoceros && jeu->joueur==1)
+    if ((info_piece->type==rhinoceros) && (jeu->joueur==1))
     {
       return 1;
     }

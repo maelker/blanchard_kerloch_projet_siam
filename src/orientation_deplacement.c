@@ -116,8 +116,8 @@ orientation_deplacement orientation_inverser(orientation_deplacement orientation
 
 int orientation_caractere_etre_integre(char orientation)
 {
-  {
-    assert(orientation_etre_integre(orientation));
+
+    //assert(orientation_etre_integre(orientation));
     orientation_deplacement orient ='?';
     if (orientation=='^')
     {
@@ -141,13 +141,13 @@ int orientation_caractere_etre_integre(char orientation)
     }
     
     return (orient);
-  }
+
 }
 
 
 orientation_deplacement orientation_correspondre_caractere(char orientation)
 {
-  assert(orientation_etre_integre_deplacement(orientation));
+ //assert(orientation_etre_integre_deplacement(orientation));
 
     // "Look up table" (LUT) convertissant une orientation vers
     //    son oppose
