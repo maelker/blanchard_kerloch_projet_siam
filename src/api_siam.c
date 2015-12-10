@@ -36,7 +36,7 @@ coup_jeu api_siam_tenter_introduire_nouvelle_piece_si_possible(jeu_siam* jeu,
     }
   }
   
-  return coup;
+  return coup; //retourne 0 par défault car coup initialise à 0
 }
 
 
@@ -65,15 +65,9 @@ coup_jeu api_siam_tenter_changer_orientation_piece_si_possible(jeu_siam* jeu,int
   coup_jeu coup;
   coup_jeu_initialiser(&coup);
   
-  if(jeu_verifier_type_piece_a_modifier(jeu,x,y)==1)
-  {
-    if(coordonnees_etre_dans_plateau(x,y)==1)
-    {
-      if (plateau_modification_changer_orientation_piece_etre_possible(&(jeu->plateau),x,y,orientation)==1)
-      {
-	coup.valide=1;
-      }
-    }
-  }
-  return coup;
+//   if(plateau_modification_introduire_piece_etre_possible(&(jeu->plateau),x,y,&(jeu->plateau.piece.type,orientation))==1)
+//   {
+// 	coup.valide=1;
+//   }
+//   return coup;
 }
