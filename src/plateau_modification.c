@@ -22,7 +22,7 @@ int plateau_modification_introduire_piece_etre_possible(const plateau_siam* plat
   
   if(coordonnees_etre_bordure_plateau(x,y)==1)
   {
-    if (plateau_modification_changer_orientation_piece_etre_possible(plateau,x,y,orientation)==1)
+    if (plateau_exister_piece(plateau,x,y)==0)
     {
       return 1;
     }
@@ -40,8 +40,15 @@ void plateau_modification_introduire_piece(plateau_siam* plateau,
                                            type_piece type,
                                            orientation_deplacement orientation)
 {
+  assert(plateau!=NULL);
+  assert(plateau_etre_integre(plateau)==1);
+  assert(coordonnees_etre_dans_plateau(x,y)==1);
+  assert(orientation_etre_integre_deplacement(orientation)==1);
   //cas sans pussee
-  plateau_modification_changer_orientation_piece(plateau,x,y,orientation); //tout les assert sont dans cette fonction
+  assert(plateau_modification_introduire_piece_etre_possible(plateau,x,y,type,orientation)==1);
+  piece_siam* piece_info=plateau_obtenir_piece(plateau,x,y); //renvoie type et orientation de piece
+  piece_info->type=type;
+  piece_info->orientation=orientation;
   //cas avec poussee
    
   assert(plateau_etre_integre(plateau)==1);
