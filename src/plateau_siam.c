@@ -54,7 +54,6 @@ int plateau_etre_integre(const plateau_siam* plateau)
     
     assert(plateau!=NULL);
     
-    
     int kx=0;
     int compteur_ro=0, compteur_el=0, compteur_rh=0;
     for(kx=0;kx<NBR_CASES;++kx)
@@ -69,30 +68,46 @@ int plateau_etre_integre(const plateau_siam* plateau)
 	      return 0;
 	    }
             if(plateau_obtenir_piece_info(plateau,kx,ky)->type==rocher)
+	    {
                 compteur_ro++;
+	    }
             if(plateau_obtenir_piece_info(plateau,kx,ky)->type==elephant)
+	    {
                 compteur_el++;
+	    }
             if(plateau_obtenir_piece_info(plateau,kx,ky)->type==rhinoceros)
+	    {
                 compteur_rh++;
+	    }
         }
     }
     
     int condition_rocher=0;
     if(compteur_ro>0 && compteur_ro<=3)
+    {
         condition_rocher=1;
-    
+    }
     int condition_elephant=0;
     if(compteur_el>=0 && compteur_el<=5)
+    {
         condition_elephant=1;
+    }
     
       int condition_rhinoceros=0;
     if(compteur_rh>=0 && compteur_rh<=5)
-        condition_rhinoceros=1;  
+    {
+        condition_rhinoceros=1;
+    }
     
     if(condition_elephant==1 && condition_rhinoceros==1 && condition_rocher==1)
+    {
         return 1;
+    }
     else
+    {
         return 0;
+
+    }
 }
 
 piece_siam* plateau_obtenir_piece(plateau_siam* plateau,int x,int y)
