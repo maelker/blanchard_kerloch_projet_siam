@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int poussee_etre_valide(const plateau_siam* plateau, int x, int y, orientation_deplacement orientation)
+/*int poussee_etre_valide(const plateau_siam* plateau, int x, int y, orientation_deplacement orientation)
 {
     
     return 0;
@@ -24,4 +24,4 @@ plateau_siam poussee_realiser(plateau_siam* plateau, int x, int y, type_piece ty
 {
     
     return &plateau;
-}
+}*/

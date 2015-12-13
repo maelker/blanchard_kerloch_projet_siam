@@ -19,7 +19,7 @@ coup_jeu api_siam_tenter_introduire_nouvelle_piece_si_possible(jeu_siam* jeu,
   coup_jeu_initialiser(&coup);
   if(jeu_etre_integre(jeu)==1)
   {
-    if(coordonnees_etre_dans_plateau(x,y)==1);
+    if(coordonnees_etre_dans_plateau(x,y)==1)
     {
       if(coordonnees_etre_bordure_plateau(x,y)==1)
       {
@@ -50,7 +50,7 @@ coup_jeu api_siam_tenter_deplacer_piece_si_possible(jeu_siam* jeu,
   assert(jeu_etre_integre(jeu)==1);
   coup_jeu coup;
   coup_jeu_initialiser(&coup);
-  if(coordonnees_etre_dans_plateau(x,y)==1);
+  if(coordonnees_etre_dans_plateau(x,y)==1)
   {
     if(plateau_exister_piece(&(jeu->plateau),x,y)==1)
     {
