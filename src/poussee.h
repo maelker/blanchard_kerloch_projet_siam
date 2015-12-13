@@ -50,7 +50,7 @@
  *       - Un retour valant 0 sinon.
  *
  */
-int poussee_etre-valide(const plateau_siam* plateau, int x, int y, orientation_deplacement orientation);
+int poussee_etre_valide(const plateau_siam* plateau, int x, int y, orientation_deplacement orientation);
 
 /**
  * Fonction poussee_realiser:

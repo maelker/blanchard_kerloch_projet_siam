@@ -20,6 +20,7 @@ gcc -c plateau_modification.c $CFLAGS
 gcc -c plateau_siam.c $CFLAGS
 gcc -c type_piece.c $CFLAGS
 gcc -c fonction_test.c $CFLAGS
+gcc -c poussee.c $CFLAGS
 
-gcc api_siam.o condition_victoire_partie.o coordonnees_plateau.o coup_jeu.o entree_sortie.o jeu_siam.o joueur.o main.o mode_interactif.o orientation_deplacement.o parseur_mode_interactif.o piece_siam.o plateau_modification.o plateau_siam.o type_piece.o fonction_test.o -o ../bin/jeu_siam
+gcc api_siam.o condition_victoire_partie.o coordonnees_plateau.o coup_jeu.o entree_sortie.o jeu_siam.o joueur.o main.o mode_interactif.o orientation_deplacement.o parseur_mode_interactif.o piece_siam.o plateau_modification.o plateau_siam.o type_piece.o fonction_test.o poussee.o -o ../bin/jeu_siam
 
