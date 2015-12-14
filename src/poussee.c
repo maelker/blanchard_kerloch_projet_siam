@@ -80,6 +80,7 @@ int poussee_etre_valide(const plateau_siam* plateau, int x, int y, orientation_d
 
 void poussee_realiser(plateau_siam* plateau, int x, int y, type_piece type, orientation_deplacement orientation, condition_victoire_partie victoire)
 {
+
   assert(poussee_etre_valide(plateau,x,y,orientation)==1);
   int nb_piece=0;
   while(plateau_exister_piece(plateau,x,y)==1)
@@ -108,3 +109,4 @@ void poussee_realiser(plateau_siam* plateau, int x, int y, type_piece type, orie
   }  
   
 }
+

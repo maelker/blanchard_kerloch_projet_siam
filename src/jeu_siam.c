@@ -35,9 +35,26 @@ void jeu_initialiser(jeu_siam* jeu)
 
     
     plateau_initialiser(&jeu->plateau);
-    piece_siam* p1=plateau_obtenir_piece(&jeu->plateau,0,4);
+    piece_siam* p1=plateau_obtenir_piece(&jeu->plateau,0,0);
     p1->type=elephant;
     p1->orientation=droite;
+    
+    piece_siam* p2=plateau_obtenir_piece(&jeu->plateau,0,1);
+    p2->type=elephant;
+    p2->orientation=droite;
+    
+    piece_siam* p3=plateau_obtenir_piece(&jeu->plateau,0,2);
+    p3->type=elephant;
+    p3->orientation=droite;
+
+    piece_siam* p4=plateau_obtenir_piece(&jeu->plateau,0,3);
+    p4->type=elephant;
+    p4->orientation=droite;
+    
+    piece_siam* p5=plateau_obtenir_piece(&jeu->plateau,0,4);
+    p5->type=elephant;
+    p5->orientation=droite;
+    
     jeu->joueur=0;
 }
 
