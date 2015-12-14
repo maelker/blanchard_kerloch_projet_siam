@@ -32,10 +32,7 @@ void ligne_de_commande_parser(const char* ligne_commande,action_a_realiser* acti
 
 
 
-    else if(strlen(ligne_commande)>=3 &&
-            (strncmp(ligne_commande,"FIN",3)==0 ||
-             strncmp(ligne_commande,"fin",3)==0 ||
-             strncmp(ligne_commande,"Fin",3)==0) )
+    else if(strlen(ligne_commande)>=3 && (strncmp(ligne_commande,"FIN",3)==0 || strncmp(ligne_commande,"fin",3)==0 || strncmp(ligne_commande,"Fin",3)==0) )
     {
         action->type_action=fin;
         return ;

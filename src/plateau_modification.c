@@ -1,6 +1,6 @@
 #include "plateau_modification.h"
 #include "coordonnees_plateau.h"
-
+#include "type_piece.h"
 
 #include <assert.h>
 #include <stdlib.h>
@@ -18,7 +18,7 @@ int plateau_modification_introduire_piece_etre_possible(const plateau_siam* plat
     assert(plateau_etre_integre(plateau)==1);
     assert(coordonnees_etre_dans_plateau(x,y)==1);
     assert(orientation_etre_integre_deplacement(orientation)==1);
-    
+    assert(type_etre_integre(type)==0);
     
     if(coordonnees_etre_bordure_plateau(x,y)==1)
     {

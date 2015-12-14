@@ -86,7 +86,37 @@ typedef struct
 }action_a_realiser;
 
 
+/**
+ * Fonction action_initialiser:
+ * *************************
+ *    Initialise une action à réaliser de base.
+ *    Assigne au nom de l'action le caractere: "\0".
+ *    Assigne a la coordonnee de x la valeur: "-1".
+ *    Assigne a la coordonnee de y la valeur: "-1".
+ *    Assigne a l'orientation de l'action: "aucune_orientation".
+ * 
+ *    Necessite:
+ *      - Un pointeur non NULL vers une action_a_realiser modifiable.
+ *
+ */
 void action_initialiser(action_a_realiser* action_a_initialiser);
+
+
+/**
+ * Fonction ligne_de_commande_parser:
+ * *************************
+ *    Verifie qu'une piece correspond a la definition donnee.
+ *    Une piece est integre si:
+ *     - Il s'agit d'un animal (elephant ou rhinoceros) et que
+ *         son orientation vaut gauche,droite,haut ou bas.
+ *     - Il s'agit d'un rocher ou d'une case vide et son orientation vaut
+ *         aucune_orientation.
+ *    Toute autre combinaison correspond a une piece non integre.
+ *
+ *    Necessite:
+ *      - Un pointeur non NULL vers une piece_siam non modifiable.
+ *
+ */
 void ligne_de_commande_parser(const char* ligne_commande,action_a_realiser* action_demandee);
 
 
