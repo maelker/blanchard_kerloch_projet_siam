@@ -1,3 +1,4 @@
+#include "poussee.h"
 #include "api_siam.h"
 #include "plateau_modification.h"
 #include "coordonnees_plateau.h"
@@ -5,7 +6,7 @@
 #include "piece_siam.h"
 #include "plateau_siam.h"
 #include "joueur.h"
-#include "poussee.h"
+
 
 #include <assert.h>
 #include <stdlib.h>

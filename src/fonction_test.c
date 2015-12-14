@@ -2,6 +2,7 @@
 #include "piece_siam.h"
 #include "plateau_siam.h"
 #include "type_piece.h"
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <assert.h>

@@ -1,6 +1,3 @@
-
-
-
 #include "parseur_mode_interactif.h"
 
 
