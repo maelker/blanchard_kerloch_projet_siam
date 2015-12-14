@@ -24,7 +24,7 @@ int orientation_etre_integre_deplacement(orientation_deplacement direction_depla
     // Une enumeration etant un type non signee, il est forcement positif.
     // Il suffit donc que type soit < 5 pour designer un type valide.
 
-    if(direction_deplacement<5)
+    if(direction_deplacement<4)
         return 1;
     return 0;
 }
@@ -34,6 +34,7 @@ const char* orientation_nommer(orientation_deplacement orientation)
     // "Look up table" (LUT) convertissant une orientation vers
     //    la chaine de caractere correspondante.
 
+    assert(orientation_etre_integre(orientation)==1);
     switch(orientation)
     {
     case haut:
@@ -47,7 +48,7 @@ const char* orientation_nommer(orientation_deplacement orientation)
     case aucune_orientation:
         return "aucune"; break;
     default:
-        printf("Erreur, orientation piece %d non reconnue",orientation);
+        printf("Erreur 1 , orientation piece %d non reconnue",orientation);
         abort();
     }
 
@@ -61,7 +62,7 @@ const char* orientation_nommer_nom_cours(orientation_deplacement orientation)
 {
     // "Look up table" (LUT) convertissant une orientation vers
     //    la chaine de caractere courte correspondante.
-
+    assert(orientation_etre_integre(orientation)==1);
     switch(orientation)
     {
     case haut:
@@ -75,7 +76,7 @@ const char* orientation_nommer_nom_cours(orientation_deplacement orientation)
     case aucune_orientation:
         return "?"; break;
     default:
-        printf("Erreur, orientation piece %d non reconnue",orientation);
+        printf("Erreur 2, orientation piece %d non reconnue",orientation);
         abort();
     }
 
@@ -104,7 +105,7 @@ orientation_deplacement orientation_inverser(orientation_deplacement orientation
     case droite:
         return gauche;
     default:
-        printf("Erreur, orientation piece %d non reconnue",orientation);
+        printf("Erreur 3, orientation piece %d non reconnue",orientation);
         abort();
     }
 
@@ -117,44 +118,25 @@ orientation_deplacement orientation_inverser(orientation_deplacement orientation
 int orientation_caractere_etre_integre(char orientation)
 {
 
-    //assert(orientation_etre_integre(orientation));
-    orientation_deplacement orient ='?';
-    if (orientation=='^')
+    if (orientation=='^' || orientation=='v' || orientation=='<' || orientation=='>' )
     {
-      orient = '^';
+      return 1;
     }
-    else if (orientation=='v')
+    else
     {
-      orient = 'v';
+      return 0;
     }
-    else if (orientation=='>')
-    {
-      orient = '>';
-    }
-    else if (orientation=='<')
-    {
-      orient = '<';
-    }
-    else if (orientation=='?')
-    {
-      orient = '?';
-    }
-    
-    return (orient);
 
 }
 
 
 orientation_deplacement orientation_correspondre_caractere(char orientation)
 {
- //assert(orientation_etre_integre_deplacement(orientation));
-
     // "Look up table" (LUT) convertissant une orientation vers
     //    son oppose
     // haut   <-> bas
     // droite <-> gauche
-
-
+    assert(orientation_caractere_etre_integre(orientation)==1);
     switch(orientation)
     {
     case '^':
@@ -168,7 +150,7 @@ orientation_deplacement orientation_correspondre_caractere(char orientation)
     case '?':
         return aucune_orientation;
     default:
-        printf("Erreur, orientation piece %d non reconnue",orientation);
+        printf("Erreur 4, orientation piece %d non reconnue",orientation);
         abort();
     }
 

@@ -45,7 +45,7 @@ const char* type_nommer(type_piece type) //conversion enum en string
     case case_vide:
       return "vide"; break;
     default:
-      printf("Erreur, type piece %d non reconnue",type);
+      printf("Erreur 5, type piece %d non reconnue",type);
       abort();
   }
   
@@ -70,7 +70,7 @@ const char* type_nommer_nom_cours(type_piece type) // transforme le string en ch
     case case_vide:
       return "***"; break;
     default:
-      printf("Erreur, type piece %d non reconnue",type);
+      printf("Erreur 6, type piece %d non reconnue",type);
       abort();
   }
   
