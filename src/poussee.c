@@ -13,9 +13,17 @@
 #include <stdio.h>
 
 int poussee_etre_valide(const plateau_siam* plateau, int x, int y, orientation_deplacement orientation)
-{
-    
-    return 0;
+{ 
+  assert(plateau!=NULL);
+  assert(plateau_etre_integre(plateau)==1);
+  assert(coordonnees_etre_dans_plateau(x,y)==1);
+  assert(orientation_etre_integre_deplacement(orientation)==1);
+  
+  
+  
+  
+  
+  return 0;
 }
 
 
