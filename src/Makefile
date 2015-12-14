@@ -1,18 +1,15 @@
 CFLAGS=-g -Wall -Wextra
+OBJ=api_siam.o condition_victoire_partie.o coordonnees_plateau.o coup_jeu.o entree_sortie.o jeu_siam.o joueur.o main.o mode_interactif.o orientation_deplacement.o parseur_mode_interactif.o piece_siam.o plateau_modification.o plateau_siam.o type_piece.o fonction_test.o poussee.o
+
+all: jeu_siam clean
 
 
-all: executable
-
-
-executable: jeu_siam
+jeu_siam: $(OBJ)
+	gcc $(OBJ) -o jeu_siam
 	mkdir -p ../bin/
-	mv jeu_siam ../bin/
+	cp jeu_siam ../bin/
 
-	
-jeu_siam: api_siam.o condition_victoire_partie.o coordonnees_plateau.o coup_jeu.o entree_sortie.o jeu_siam.o joueur.o main.o mode_interactif.o orientation_deplacement.o parseur_mode_interactif.o piece_siam.o plateau_modification.o plateau_siam.o type_piece.o fonction_test.o poussee.o
-	
-
-api_siam.o: api_siam.c api_siam.h
+api_siam.o: api_siam.c api_siam.h plateau_modification.h coordonnees_plateau.h jeu_siam.h piece_siam.h plateau_siam.h joueur.h
 condition_victoire_partie.o: condition_victoire_partie.c condition_victoire_partie.h
 coordonnees_plateau.o: coordonnees_plateau.c coordonnees_plateau.h
 coup_jeu.o: coup_jeu.c coup_jeu.h
@@ -32,4 +29,4 @@ poussee.o: poussee.c poussee.h
 
 
 clean:
-	rm -f *.o *~ 
+	rm -f *.o *~ jeu_siam
