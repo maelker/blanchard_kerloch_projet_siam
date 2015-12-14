@@ -12,7 +12,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int poussee_etre_valide(const plateau_siam* plateau, int x, int y, orientation_deplacement orientation)
+/*int poussee_etre_valide(const plateau_siam* plateau, int x, int y, orientation_deplacement orientation)
 { 
   assert(plateau!=NULL);
   assert(plateau_etre_integre(plateau)==1);
@@ -31,5 +31,12 @@ int poussee_etre_valide(const plateau_siam* plateau, int x, int y, orientation_d
 
 void poussee_realiser(plateau_siam* plateau, int x, int y, type_piece type, orientation_deplacement orientation, condition_victoire_partie victoire)
 {
-    //seance 4
-}
+  assert(plateau!=NULL);
+  assert(plateau_etre_integre(plateau)==1);
+  assert(coordonnees_etre_dans_plateau(x,y)==1);
+  assert(
+  assert(orientation_etre_integre_deplacement(orientation)==1);
+  
+  
+  
+}*/

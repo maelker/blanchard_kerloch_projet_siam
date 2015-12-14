@@ -1,6 +1,7 @@
 #include "plateau_modification.h"
 #include "coordonnees_plateau.h"
 #include "type_piece.h"
+#include "plateau_siam.h"
 
 #include <assert.h>
 #include <stdlib.h>
@@ -8,27 +9,28 @@
 
 
 
-int plateau_modification_introduire_piece_etre_possible(const plateau_siam* plateau,
-                                                        int x,int y,
-                                                        type_piece type,
-                                                        orientation_deplacement orientation)
+int plateau_modification_introduire_piece_etre_possible(const plateau_siam* plateau, int x,int y, type_piece type, orientation_deplacement orientation)
 {
     //cas sans poussee
     assert(plateau!=NULL);
     assert(plateau_etre_integre(plateau)==1);
     assert(coordonnees_etre_dans_plateau(x,y)==1);
     assert(orientation_etre_integre_deplacement(orientation)==1);
-    assert(type_etre_integre(type)==0);
+    assert(type_etre_integre(type)==1);
     
     if(coordonnees_etre_bordure_plateau(x,y)==1)
     {
         if (plateau_exister_piece(plateau,x,y)==0)
         {
-            return 1;
-        }
-        else
-        {
-            puts("la poussee n est pas cencore prise en compte");
+            if (plateau_denombrer_type(plateau,type)<5)
+            {
+                return 1;
+                
+            }
+            else
+            {
+                puts("la poussee n est pas encore prise en compte");
+            }
         }
     }
     
@@ -39,10 +41,7 @@ int plateau_modification_introduire_piece_etre_possible(const plateau_siam* plat
 
 
 
-void plateau_modification_introduire_piece(plateau_siam* plateau,
-                                           int x,int y,
-                                           type_piece type,
-                                           orientation_deplacement orientation)
+void plateau_modification_introduire_piece(plateau_siam* plateau, int x,int y, type_piece type, orientation_deplacement orientation)
 {
     assert(plateau!=NULL);
     assert(plateau_etre_integre(plateau)==1);
@@ -108,10 +107,7 @@ void plateau_modification_changer_orientation_piece(plateau_siam* plateau,int x0
 }
 
 
-int plateau_modification_deplacer_piece_etre_possible(const plateau_siam* plateau,
-                                                      int x0,int y0,
-                                                      orientation_deplacement direction_deplacement,
-                                                      orientation_deplacement orientation)
+int plateau_modification_deplacer_piece_etre_possible(const plateau_siam* plateau, int x0,int y0, orientation_deplacement direction_deplacement, orientation_deplacement orientation)
 {
     assert(plateau!=NULL);
     assert(plateau_etre_integre(plateau)==1);
@@ -156,10 +152,7 @@ int plateau_modification_deplacer_piece_etre_possible(const plateau_siam* platea
 }
 
 
-void plateau_modification_deplacer_piece(plateau_siam* plateau,
-                                         int x0,int y0,
-                                         orientation_deplacement direction_deplacement,
-                                         orientation_deplacement orientation_final)
+void plateau_modification_deplacer_piece(plateau_siam* plateau, int x0,int y0, orientation_deplacement direction_deplacement, orientation_deplacement orientation_final)
 {
     assert(plateau_modification_deplacer_piece_etre_possible(plateau,x0,y0,direction_deplacement,orientation_final)==1);
     //cas sans poussee

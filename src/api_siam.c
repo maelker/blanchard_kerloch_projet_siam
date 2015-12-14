@@ -10,9 +10,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-coup_jeu api_siam_tenter_introduire_nouvelle_piece_si_possible(jeu_siam* jeu,
-							       int x,int y,
-							       orientation_deplacement orientation)
+coup_jeu api_siam_tenter_introduire_nouvelle_piece_si_possible(jeu_siam* jeu, int x,int y, orientation_deplacement orientation)
 {
   assert(jeu!=NULL);
   coup_jeu coup;
@@ -41,10 +39,7 @@ coup_jeu api_siam_tenter_introduire_nouvelle_piece_si_possible(jeu_siam* jeu,
   
 }
 
-coup_jeu api_siam_tenter_deplacer_piece_si_possible(jeu_siam* jeu,
-						    int x,int y,
-						    orientation_deplacement deplacement,
-						    orientation_deplacement orientation)
+coup_jeu api_siam_tenter_deplacer_piece_si_possible(jeu_siam* jeu, int x, int y, orientation_deplacement deplacement, orientation_deplacement orientation)
 {
   assert(jeu!=NULL);
   assert(jeu_etre_integre(jeu)==1);
