@@ -56,6 +56,8 @@
  *  Plateau_modification necessite la notion d'abstraction de plateau.
  */
 #include "plateau_siam.h"
+#include "poussee.h"
+
 
 
 

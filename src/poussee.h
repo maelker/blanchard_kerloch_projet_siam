@@ -30,7 +30,6 @@
 #define POUSSEE_H
 
 
-
 /**
  * Fonction poussee_etre_valide:
  * *************************
@@ -70,6 +69,6 @@ int poussee_etre_valide(const plateau_siam* plateau, int x, int y, orientation_d
  *       - Un plateau integre mis a jour en ayant realise la poussee.
  *
  */
-void poussee_realiser(plateau_siam* plateau, int x, int y, type_piece type, orientation_deplacement orientation, condition_victoire_partie victoire);
+void poussee_realiser(plateau_siam* plateau, int x, int y, type_piece type, orientation_deplacement orientation);
 
 #endif

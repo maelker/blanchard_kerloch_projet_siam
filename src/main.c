@@ -4,6 +4,7 @@
 #include "api_siam.h"
 #include "mode_interactif.h"
 #include "type_piece.h"
+#include "poussee.h"
 
 #include <stdio.h>
 

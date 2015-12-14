@@ -5,6 +5,7 @@
 #include "piece_siam.h"
 #include "plateau_siam.h"
 #include "joueur.h"
+#include "poussee.h"
 
 #include <assert.h>
 #include <stdlib.h>
@@ -55,7 +56,6 @@ coup_jeu api_siam_tenter_deplacer_piece_si_possible(jeu_siam* jeu, int x, int y,
       {
 	if(plateau_modification_deplacer_piece_etre_possible(&(jeu->plateau),x,y,deplacement,orientation)==1)
 	{
-	  printf("type %d\n joueur %d\n ", type, jeu->joueur );
 	  plateau_modification_deplacer_piece(&(jeu->plateau),x,y,deplacement,orientation);
 	  coup.valide=1;
 	  joueur_changer(&(jeu->joueur));
