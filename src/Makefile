@@ -21,7 +21,7 @@ mode_interactif.o: mode_interactif.c mode_interactif.h api_siam.h parseur_mode_i
 orientation_deplacement.o: orientation_deplacement.c orientation_deplacement.h
 parseur_mode_interactif.o: parseur_mode_interactif.c parseur_mode_interactif.h
 piece_siam.o: piece_siam.c piece_siam.h
-plateau_modification.o: plateau_modification.c plateau_modification.h coordonnees_plateau.h type_piece.h plateau_siam.h
+plateau_modification.o: plateau_modification.c plateau_modification.h coordonnees_plateau.h type_piece.h plateau_siam.h piece_siam.h
 plateau_siam.o: plateau_siam.c plateau_siam.h entree_sortie.h
 type_piece.o: type_piece.c type_piece.h
 fonction_test.o: fonction_test.c fonction_test.h piece_siam.h plateau_siam.h type_piece.h

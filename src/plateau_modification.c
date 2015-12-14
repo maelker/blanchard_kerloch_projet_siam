@@ -2,6 +2,7 @@
 #include "coordonnees_plateau.h"
 #include "type_piece.h"
 #include "plateau_siam.h"
+#include "piece_siam.h"
 
 #include <assert.h>
 #include <stdlib.h>
@@ -119,24 +120,6 @@ int plateau_modification_deplacer_piece_etre_possible(const plateau_siam* platea
     int animal=piece_etre_animal(info_piece);
     assert(animal==1);
     
-    //verification deplacement legitime en bord de plateau
-    
-    if(x0==0 && direction_deplacement==gauche)
-    {
-        return 0;
-    }
-    if(x0==4 && direction_deplacement==gauche)
-    {
-        return 0;
-    }
-    if(y0==0 && direction_deplacement==bas)
-    {
-        return 0;
-    }
-    if(y0==4 && direction_deplacement==haut)
-    {
-        return 0;
-    }
     //presence ou non de piece sur la case ou on veut deplacer l animal
     coordonnees_appliquer_deplacement(&x0,&y0,direction_deplacement);
     piece_siam const *info_piece_arrivee=plateau_obtenir_piece_info(plateau,x0,y0); //renvoie type et orientation de piece a deplacer
@@ -168,8 +151,31 @@ void plateau_modification_deplacer_piece(plateau_siam* plateau, int x0,int y0, o
     //deplacement
     coordonnees_appliquer_deplacement(&x0,&y0,direction_deplacement); //la piece est maintenant sur une autre case mais avec son ancienne orientation
     
-    //afectation orientation finale et mise a jour piece
     piece_siam* info_piece=plateau_obtenir_piece(plateau,x0,y0); //renvoie type et orientation de piece
+    
+    if(x0==0 && direction_deplacement==gauche)
+    {
+        info_piece->type=case_vide;
+        info_piece->orientation=aucune_orientation;
+    }
+    if(x0==4 && direction_deplacement==gauche)
+    {
+        info_piece->type=case_vide;
+        info_piece->orientation=aucune_orientation;
+    }
+    if(y0==0 && direction_deplacement==bas)
+    {
+        info_piece->type=case_vide;
+        info_piece->orientation=aucune_orientation;
+    }
+    if(y0==4 && direction_deplacement==haut)
+    {
+        info_piece->type=case_vide;
+        info_piece->orientation=aucune_orientation;
+    }
+    
+    //afectation orientation finale et mise a jour piece
+    
     info_piece->orientation=orientation_final;
     info_piece->type=type;
     //cas avec poussee
@@ -178,4 +184,4 @@ void plateau_modification_deplacer_piece(plateau_siam* plateau, int x0,int y0, o
     
 }
 
-
+    
