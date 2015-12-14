@@ -72,7 +72,7 @@ void ligne_de_commande_parser(const char* ligne_commande,action_a_realiser* acti
                 action->y_depart=y;
                 action->deplacement=orientation_correspondre_caractere(dir);
                 action->orientation=orientation_correspondre_caractere(ori);
-
+		
                 return ;
             }
         }

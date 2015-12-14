@@ -56,7 +56,6 @@ coup_jeu api_siam_tenter_deplacer_piece_si_possible(jeu_siam* jeu,
     {
       piece_siam *info_piece=plateau_obtenir_piece(&(jeu->plateau),x,y); //renvoie type et orientation de piece a deplacer
       type_piece type=info_piece->type; //selectionne le type
-      puts("ok1");
       if(joueur_etre_type_animal(jeu->joueur,type)==1)
       {
 	if(plateau_modification_deplacer_piece_etre_possible(&(jeu->plateau),x,y,deplacement,orientation)==1)
