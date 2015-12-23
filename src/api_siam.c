@@ -55,8 +55,8 @@ coup_jeu api_siam_tenter_introduire_nouvelle_piece_si_possible(jeu_siam* jeu, in
   {
     puts("le jeu est non integre");
   }
-    
-    return coup; //retourne 0 par défault car coup initialise à 0
+  
+  return coup; //retourne 0 par défault car coup initialise à 0
   
 }
 
@@ -72,27 +72,34 @@ coup_jeu api_siam_tenter_deplacer_piece_si_possible(jeu_siam* jeu, int x, int y,
     {
       piece_siam *info_piece=plateau_obtenir_piece(&(jeu->plateau),x,y); //renvoie type et orientation de piece a deplacer
       type_piece type=info_piece->type; //selectionne le type
-      if(joueur_etre_type_animal(jeu->joueur,type)==1)
+      if(type_etre_animal(type)==1)
       {
-	if(plateau_modification_deplacer_piece_etre_possible(&(jeu->plateau),x,y,deplacement,orientation)==1)
+	if(joueur_etre_type_animal(jeu->joueur,type)==1)
 	{
-	  plateau_modification_deplacer_piece(&(jeu->plateau),x,y,deplacement,orientation);
-	  coup.valide=1;
-	  joueur_changer(&(jeu->joueur));
+	  if(plateau_modification_deplacer_piece_etre_possible(&(jeu->plateau),x,y,deplacement,orientation)==1)
+	  {
+	    plateau_modification_deplacer_piece(&(jeu->plateau),x,y,deplacement,orientation);
+	    coup.valide=1;
+	    joueur_changer(&(jeu->joueur));
+	  }
+	  else
+	  {
+	    puts("deplacement impossible de la piece");
+	  }
 	}
 	else
 	{
-	  puts("deplacement impossible de la piece");
+	  puts("vous ne pouvez deplacer que vos animaux");
 	}
       }
       else
       {
-	puts("vous ne pouvez deplacer que vos animaux");
+	puts("vous ne pouvez pas deplacer de rocher");
       }
     }
     else
     {
-      puts("une piece est presente");
+      puts("impossible de deplacer une case vide");
     }
   }
   else
