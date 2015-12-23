@@ -31,9 +31,29 @@ coup_jeu api_siam_tenter_introduire_nouvelle_piece_si_possible(jeu_siam* jeu, in
 	    coup.valide=1;
 	    joueur_changer(&(jeu->joueur));	  
 	  }
+	  else
+	  {
+	    puts("introduction impossible de la piece");
+	  }
+	}
+	else
+	{
+	  puts("une piece est presente");
 	}
       }
+      else
+      {
+	puts("les coordonnees ne sont pas en bordure de plateau");
+      }
     }
+    else
+    {
+      puts("les coordonnees ne sont pas dans le plateau");
+    }
+  }
+  else
+  {
+    puts("le jeu est non integre");
   }
     
     return coup; //retourne 0 par défault car coup initialise à 0
@@ -60,8 +80,24 @@ coup_jeu api_siam_tenter_deplacer_piece_si_possible(jeu_siam* jeu, int x, int y,
 	  coup.valide=1;
 	  joueur_changer(&(jeu->joueur));
 	}
+	else
+	{
+	  puts("deplacement impossible de la piece");
+	}
+      }
+      else
+      {
+	puts("vous ne pouvez deplacer que vos animaux");
       }
     }
+    else
+    {
+      puts("une piece est presente");
+    }
+  }
+  else
+  {
+    puts("les coordonnees ne sont pas dans le plateau");
   }
   
   return coup;
@@ -81,17 +117,20 @@ coup_jeu api_siam_tenter_changer_orientation_piece_si_possible(jeu_siam* jeu,int
   {
     piece_siam *info_piece=plateau_obtenir_piece(&(jeu->plateau),x,y); //renvoie type et orientation de piece a deplacer
     type_piece type=info_piece->type; //selectionne le type
-    puts("ok1");
     if(joueur_etre_type_animal(jeu->joueur,type)==1)
     {
       plateau_modification_changer_orientation_piece(&(jeu->plateau),x,y,orientation);
       coup.valide=1;
       joueur_changer(&(jeu->joueur));
     }
+    else
+    {
+      puts("vous ne pouvez deplacer que vos animaux");
+    }
   }
   else
   {
-    puts("le coup n'est pas possible");
+    puts("le changement d orientation est impossible");
   }
   
   return coup;

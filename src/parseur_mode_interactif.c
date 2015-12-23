@@ -62,7 +62,7 @@ void ligne_de_commande_parser(const char* ligne_commande,action_a_realiser* acti
         int x=0;int y=0;char dir='\0';char ori='\0';
         if(sscanf(ligne_commande,"d %d %d %c %c",&x,&y,&dir,&ori)==4)
         {
-            if(orientation_caractere_etre_integre(dir) && orientation_correspondre_caractere(ori))
+            if(orientation_caractere_etre_integre(dir) && orientation_caractere_etre_integre(ori))
             {
                 action->type_action=deplacement;
                 action->x_depart=x;
