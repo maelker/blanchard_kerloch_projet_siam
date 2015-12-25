@@ -54,7 +54,7 @@ void plateau_modification_introduire_piece(plateau_siam* plateau, int x,int y, t
   piece_siam* piece_info=plateau_obtenir_piece(plateau,x,y); //renvoie type et orientation de piece
   piece_info->type=type;
   piece_info->orientation=orientation;
-
+  
   assert(plateau_etre_integre(plateau)==1); //ne sera jamais lu normalement
 }
 
@@ -111,65 +111,98 @@ int plateau_modification_deplacer_piece_etre_possible(const plateau_siam* platea
   assert(orientation_etre_integre(orientation)==1); //verifie si orientation apres deplacement est integre
   assert(plateau_exister_piece(plateau,x0,y0)==1);
   const piece_siam* info_piece=plateau_obtenir_piece_info(plateau,x0,y0); //renvoie type et orientation de piece
+  const orientation_deplacement orientation_avant_poussee=info_piece->orientation; //orientation de la piece qui va potentiellement pousser
   int animal=piece_etre_animal(info_piece);
   assert(animal==1);
   
-  //cas de sortie d une piece
+  //cas de sortie d une piece en bord de plateau
   if((x0==0 && direction_deplacement==gauche) || (x0==4 && direction_deplacement==droite) || (y0==0 && direction_deplacement==bas) || (y0==4 && direction_deplacement==haut))
   {
     return 1;
   }
-  //presence ou non de piece sur la case ou on veut deplacer l animal
-//   coordonnees_appliquer_deplacement(&x0,&y0,direction_deplacement);
-//   piece_siam const *info_piece_arrivee=plateau_obtenir_piece_info(plateau,x0,y0); //renvoie type et orientation de piece a deplacer
-//   type_piece type=info_piece_arrivee->type; //selection du type de la piece car on vider la case
-//   if(poussee_etre_valide(plateau,x0,y0,direction_deplacement)==1)
-//   {
-//     return 1;
-//   }
+  //cas d un deplacement classique sans poussee
   
-  return 1;
+  //on regarde si la case d apres est vide ou non
+  coordonnees_appliquer_deplacement(&x0,&y0,direction_deplacement);
+  if(plateau_exister_piece(plateau,x0,y0)==0)
+  {
+    return 1;
+  }
+  else //cas de la poussee
+  {
+    if(direction_deplacement == orientation_avant_poussee)
+    {
+      if(direction_deplacement == orientation)
+      {
+	if(poussee_etre_valide(plateau, x0, y0, direction_deplacement)==1)
+	{
+	  return 1;
+	}
+	else
+	{
+	  puts("poussee invalide");
+	}
+      }
+      else
+      {
+	puts("un animal qui pousse ne peut pas changer d orientation");
+      }
+    }
+    else
+    {
+      puts("il faut etre oriente dans la direction de poussee");
+    }
+  }
+  
+  return 0;
+  
+  
 }
 
 
 void plateau_modification_deplacer_piece(plateau_siam* plateau, int x0,int y0, orientation_deplacement direction_deplacement, orientation_deplacement orientation_final)
 {
   assert(plateau_modification_deplacer_piece_etre_possible(plateau,x0,y0,direction_deplacement,orientation_final)==1);
-  //vider la case ancienne
+  //info de la piece qui pousse
   piece_siam* info_piece_depart=plateau_obtenir_piece(plateau,x0,y0); //renvoie type et orientation de piece a deplacer
   type_piece type=info_piece_depart->type; //selection du type de la piece car on va vider la case
   
+  //on vide la case
   info_piece_depart->type=case_vide; //liberation de case
   info_piece_depart->orientation=aucune_orientation; //elimination de orientation
   
-  
-  //deplacement
   //cas de sortie de piece du plateau
   if((x0==0 && direction_deplacement==gauche) || (x0==4 && direction_deplacement==droite) || (y0==0 && direction_deplacement==bas) || (y0==4 && direction_deplacement==haut))
   {  
     puts("piece sortie du plateau");
   }
-  else
+  else //si on est pas dans le cadre d'une sortie directe du plateau
   {
-    
-    coordonnees_appliquer_deplacement(&x0,&y0,direction_deplacement); //la piece est maintenant sur une autre case mais avec son ancienne orientation
-    printf(" x: %d\n  y:  %d\n", x0, y0);
-    if(plateau_exister_piece(plateau,x0,y0)==0) //cas sans poussee
+    //on applique le deplacement pour savoir si la pousse est necessaire
+    coordonnees_appliquer_deplacement(&x0,&y0,direction_deplacement);
+    if(plateau_exister_piece(plateau,x0,y0)==0)
     {
-    //afectation orientation finale et mise a jour piece
-    piece_siam* info_piece_arrive=plateau_obtenir_piece(plateau,x0,y0); //renvoie type et orientation de piece a deplacer
-    info_piece_arrive->orientation=orientation_final;
-    info_piece_arrive->type=type;
+      //afectation orientation finale et mise a jour piece
+      piece_siam* info_piece_arrive=plateau_obtenir_piece(plateau,x0,y0); //renvoie type et orientation de piece a deplacer
+      info_piece_arrive->orientation=orientation_final;
+      info_piece_arrive->type=type;
     }
-//     else //cas avec poussee
-//     {
-//       if(poussee_etre_valide(plateau,x0,y0, orientation_final)==1)
-//       {
-// 	poussee_realiser(plateau,x0, y0,type, direction_deplacement);
-//       }
-//     }
+    else //cas de la poussee
+    {
+      if(poussee_etre_valide(plateau, x0, y0, direction_deplacement)==1) //poussee possible
+      {
+	poussee_realiser(plateau, x0, y0, direction_deplacement);
+      }
+      else
+      {
+	puts("vous ne pouvez passer dans cette situation");
+      }
+      //mise a jour de la piece qui a poussee
+      piece_siam* info_piece_arrive=plateau_obtenir_piece(plateau,x0,y0); //renvoie type et orientation de piece a deplacer
+      info_piece_arrive->orientation=orientation_final;
+      info_piece_arrive->type=type;
+    }
   }
-  
   assert(plateau_etre_integre(plateau)==1);
   
 }
