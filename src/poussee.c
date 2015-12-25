@@ -53,7 +53,7 @@ int poussee_etre_valide(const plateau_siam* plateau, int x, int y, orientation_d
     coordonnees_appliquer_deplacement(&x,&y,orientation);
   }
   //renvoie de la possibilite de la fonction en considerant les valeurs force_poussee et nb_rocher
-   
+  
   if(nb_rocher==0)
   {
     if(force_poussee > -1)
@@ -99,43 +99,45 @@ void poussee_realiser(plateau_siam* plateau, int x, int y, orientation_deplaceme
       coordonnees_appliquer_deplacement(&x,&y,oppose);
       
       //obtention infos de la piece
-      piece_siam* info_piece=plateau_obtenir_piece(plateau,x,y); //renvoie type et orientation de piece a deplacer
+      piece_siam* info_piece=plateau_obtenir_piece(plateau,x,y); //renvoie type et orientation de piece a deplace
       
       // on rend la case vide
       info_piece->type=case_vide;
       info_piece->orientation=aucune_orientation;
     }
-    
-    //si la poussee ne genere aucune sortie de piece (cas de la case vide en fin de poussee)
-    if(plateau_exister_piece(plateau,x,y)==0)
+    else
     {
-      //on souhaite se deplacer dans le sens inverse de la direction de poussee
-      orientation_deplacement oppose=orientation_inverser(orientation);
-      
-      //on applique le deplacement inverse
-      coordonnees_appliquer_deplacement(&x,&y,oppose);
-      
-      //obtention infos de la piece
-      piece_siam* info_piece=plateau_obtenir_piece(plateau,x,y); //renvoie type et orientation de piece a deplacer
-      type_piece type=info_piece->type; //selection du type de la piece car on va vider la case
-      type_piece orientation_piece_a_poussee=info_piece->orientation;
-      
-      // on rend la case vide
-      info_piece->type=case_vide;
-      info_piece->orientation=aucune_orientation;     
- 
-      //on applique le deplacement dans le sens de la pousse
-      coordonnees_appliquer_deplacement(&x,&y,orientation);
-      
-      //obtention infos de la piece d arrivee
-      piece_siam* info_piece_fin=plateau_obtenir_piece(plateau,x,y); //renvoie type et orientation de piece a deplacer
-      
-      //mise a jour de la piece arrivee (poussee)
-      info_piece_fin->type=type;
-      info_piece_fin->orientation=orientation_piece_a_poussee;
-      
-      //on se place sur la nouvelle case vide
-      coordonnees_appliquer_deplacement(&x,&y,oppose);
+      //si la poussee ne genere aucune sortie de piece (cas de la case vide en fin de poussee)
+      if(plateau_exister_piece(plateau,x,y)==0)
+      {
+	//on souhaite se deplacer dans le sens inverse de la direction de poussee
+	orientation_deplacement oppose=orientation_inverser(orientation);
+	
+	//on applique le deplacement inverse
+	coordonnees_appliquer_deplacement(&x,&y,oppose);
+	
+	//obtention infos de la piece
+	piece_siam* info_piece=plateau_obtenir_piece(plateau,x,y); //renvoie type et orientation de piece a deplacer
+	type_piece type=info_piece->type; //selection du type de la piece car on va vider la case
+	type_piece orientation_piece_a_poussee=info_piece->orientation;
+	
+	// on rend la case vide
+	info_piece->type=case_vide;
+	info_piece->orientation=aucune_orientation;     
+	
+	//on applique le deplacement dans le sens de la pousse
+	coordonnees_appliquer_deplacement(&x,&y,orientation);
+	
+	//obtention infos de la piece d arrivee
+	piece_siam* info_piece_fin=plateau_obtenir_piece(plateau,x,y); //renvoie type et orientation de piece a deplacer
+	
+	//mise a jour de la piece arrivee (poussee)
+	info_piece_fin->type=type;
+	info_piece_fin->orientation=orientation_piece_a_poussee;
+	
+	//on se place sur la nouvelle case vide
+	coordonnees_appliquer_deplacement(&x,&y,oppose);
+      }
     }
     
   }

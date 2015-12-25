@@ -22,31 +22,24 @@ coup_jeu api_siam_tenter_introduire_nouvelle_piece_si_possible(jeu_siam* jeu, in
     {
       if(coordonnees_etre_bordure_plateau(x,y)==1)
       {
-	if(plateau_exister_piece(&(jeu->plateau),x,y)==0)
+	type_piece type=joueur_obtenir_animal(jeu->joueur);
+	if (plateau_denombrer_type(&(jeu->plateau),type)<5)
 	{
-	  type_piece type=joueur_obtenir_animal(jeu->joueur);
-	  if (plateau_denombrer_type(&(jeu->plateau),type)<5)
+	  if(plateau_modification_introduire_piece_etre_possible(&(jeu->plateau),x,y,type,orientation)==1)
 	  {
-	    if(plateau_modification_introduire_piece_etre_possible(&(jeu->plateau),x,y,type,orientation)==1)
-	    {
-	      plateau_modification_introduire_piece(&(jeu->plateau),x,y,type,orientation);
-	      coup.valide=1;
-	      joueur_changer(&(jeu->joueur));	  
-	    }
-	    else
-	    {
-	      puts("introduction impossible de la piece");
-	    }
+	    plateau_modification_introduire_piece(&(jeu->plateau),x,y,type,orientation);
+	    coup.valide=1;
+	    joueur_changer(&(jeu->joueur));	  
 	  }
 	  else
 	  {
-	    puts("nombre de pieces max atteint");
+	    puts("introduction impossible de la piece");
 	  }
 	}
 	else
 	{
-	  puts("une piece est presente");
-	}
+	  puts("nombre de pieces max atteint");
+	}	
       }
       else
       {
@@ -86,12 +79,9 @@ coup_jeu api_siam_tenter_deplacer_piece_si_possible(jeu_siam* jeu, int x, int y,
 	{
 	  if(plateau_modification_deplacer_piece_etre_possible(&(jeu->plateau),x,y,deplacement,orientation)==1)
 	  {
-	    if(deplacement == orientation_avant_poussee && deplacement == orientation)
-	    {
-	    plateau_modification_deplacer_piece(&(jeu->plateau),x,y,deplacement,orientation);
-	    coup.valide=1;
-	    joueur_changer(&(jeu->joueur));
-	    }
+	      plateau_modification_deplacer_piece(&(jeu->plateau),x,y,deplacement,orientation);
+	      coup.valide=1;
+	      joueur_changer(&(jeu->joueur));
 	  }
 	  else
 	  {

@@ -13,7 +13,6 @@
 
 int plateau_modification_introduire_piece_etre_possible(const plateau_siam* plateau, int x,int y, type_piece type, orientation_deplacement orientation)
 {
-  //cas sans poussee
   assert(plateau!=NULL);
   assert(plateau_etre_integre(plateau)==1);
   assert(coordonnees_etre_dans_plateau(x,y)==1);
@@ -22,20 +21,38 @@ int plateau_modification_introduire_piece_etre_possible(const plateau_siam* plat
   
   if(coordonnees_etre_bordure_plateau(x,y)==1)
   {
-    if (plateau_exister_piece(plateau,x,y)==0)
+    if(plateau_denombrer_type(plateau,type)<5)
     {
-      if (plateau_denombrer_type(plateau,type)<5)
+      // cas classique sans poussee
+      if(plateau_exister_piece(plateau,x,y)==0)
       {
 	return 1;
-	
       }
-      else
+      else // cas de la poussee
       {
-	puts("nombre max de pieces atteint");
+	//verification que l orientation de la piece correspond a la direction d introduction de la piece
+	if((x==0 && orientation==droite) || (x==4 && orientation==gauche) || (y==0 && orientation==haut) || (y==4 && orientation==bas))
+	{
+	  if(poussee_etre_valide(plateau, x, y, orientation)==1)
+	  {
+	    return 1;
+	  }
+	  else
+	  {
+	    puts("la poussee n est pas possible ici");
+	  }
+	}
+	else
+	{
+	  puts("orientation de la piece ne correspond pas a orientation introduction");
+	}
       }
+    }    
+    else
+    {
+      puts("nombre max de pieces atteint");
     }
-  }
-  
+  } 
   return 0;
 }
 
@@ -49,12 +66,19 @@ void plateau_modification_introduire_piece(plateau_siam* plateau, int x,int y, t
   assert(plateau_etre_integre(plateau)==1);
   assert(coordonnees_etre_dans_plateau(x,y)==1);
   assert(orientation_etre_integre_deplacement(orientation)==1);
-  //cas sans pussee
   assert(plateau_modification_introduire_piece_etre_possible(plateau,x,y,type,orientation)==1);
+  
+  //cas de la poussee
+  if(plateau_exister_piece(plateau,x,y)==1)
+  {
+    if(poussee_etre_valide(plateau, x, y, orientation==1)) //poussee possible
+    {
+      poussee_realiser(plateau, x, y, orientation);
+    }
+  }
   piece_siam* piece_info=plateau_obtenir_piece(plateau,x,y); //renvoie type et orientation de piece
   piece_info->type=type;
   piece_info->orientation=orientation;
-  
   assert(plateau_etre_integre(plateau)==1); //ne sera jamais lu normalement
 }
 
