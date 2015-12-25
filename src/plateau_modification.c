@@ -219,7 +219,7 @@ void plateau_modification_deplacer_piece(plateau_siam* plateau, int x0,int y0, o
       }
       else
       {
-	puts("vous ne pouvez passer dans cette situation");
+	puts("vous ne pouvez pousser dans cette situation");
       }
       //mise a jour de la piece qui a poussee
       piece_siam* info_piece_arrive=plateau_obtenir_piece(plateau,x0,y0); //renvoie type et orientation de piece a deplacer

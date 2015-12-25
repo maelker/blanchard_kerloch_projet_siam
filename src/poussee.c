@@ -86,7 +86,6 @@ void poussee_realiser(plateau_siam* plateau, int x, int y, orientation_deplaceme
   {
     nb_piece+=1;
     coordonnees_appliquer_deplacement(&x,&y,orientation); // a la fin du while on a les coordonnes de la derniere piece de la poussee
-    printf("apli deplacement : x = %d  y = %d\n", x, y);
   }
   int i=nb_piece;
   for(i=nb_piece; i>0; i--)
