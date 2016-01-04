@@ -1,9 +1,0 @@
-#test_unitaire_ko_introduction_03
-#
-# test l'interdiction d'introduire une piece si l'introduction n'est pas en bordure.
-i
-n 2 1 ^
-fin
-#Comportement attendu:
-# l'elephant ne peut pas etre introduit si il n'est pas en bordure du tableau.
-

@@ -1,8 +1,0 @@
-#test_unitaire_ko_03_deplacement
-#
-# test l'interdiction de deplacement d'un rocher.
-i
-d 2 2 ^ ^
-fin
-#Comportement attendu:
-#Impossibilite de deplacer le rocher, le plateau ne change pas..

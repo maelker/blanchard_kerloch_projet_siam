@@ -1,9 +1,0 @@
-#test_unitaire_ko_02_introduction
-#
-# test l'interdiction d'introduire une piece sur le plateau si il y a deja cinq pieces du meme animal dessus.
-lit ../test/test_unitaire_ko/test_ko_introduction_entree_02.txt
-n 2 0 ^
-fin
-#Comportement attendu:
-# l'elephant ne peut pas etre introduit, le plateau ne change pas.
-

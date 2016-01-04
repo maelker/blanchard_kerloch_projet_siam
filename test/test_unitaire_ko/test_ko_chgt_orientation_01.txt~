@@ -1,9 +1,0 @@
-#test_unitaire_ko_chgt_orientation_01
-#
-# test l'interdiction de changer l'orientation d'une case vide.
-i
-o 2 0 ^
-fin
-#Comportement attendu:
-# la case vide aux coordonnees ne doit pas avoir change d'orientation.
-
