@@ -1,0 +1,53 @@
+# test differents cas limites des règle du jeu pour verifier le bon fonctionnement global
+
+lit ../test/test_integration/test_integration_01_entree.txt
+
+#introductions de piece valides
+n 0 0 <
+n 0 4 v
+n 1 0 <
+
+#test sortie de piece valide
+d 0 4 < v
+d 0 0 v >
+
+#poussees valides
+n 1 0 ^
+n 1 0 ^
+
+#commandes invalides (deplacement et orientation)
+o 0 0 > 
+o 1 3 < 
+d 0 1 > >
+d 1 2 < <
+
+#commandes valides
+n 0 2 >
+o 1 2 >
+
+#commandes invalides pour des poussees en introduction
+n 2 1 >
+
+#introductions valides avec poussee
+n 0 2 >
+n 1 0 ^
+
+#introductions valides de pieces et orientation valide
+n 3 0 <
+n 4 0 <
+n 3 4 <
+o 4 0 ^
+
+#introduction invalide car nombre maximal d'animaux à introduire atteint pour les rhinos
+n 1 0 ^
+
+#deplacement valide
+d 1 3 > v
+
+#introduction avec poussee generant une sortie de piece du plateau
+n 0 2 >
+
+fin
+
+
+

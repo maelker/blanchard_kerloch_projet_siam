@@ -1,0 +1,16 @@
+# Test une suite de mouvements dont certaines sont invalides. Ces mouvements aboutissent à une poussee complexe par deplacement generant une sortie de piece
+
+lit ../test/test_integration/test_integration_01_entree.txt
+
+n 1 0 ^
+n 1 4 >
+#test introduction avec poussee avec orientation introduction invalide
+n 1 0 <
+#test introduction avec poussee valide
+n 1 0 ^
+n 1 4 v
+#test deplacement avec direction de deplacement differente de orientation apres deplacment (commande invalide)
+d 1 0 ^ >
+#test deplacement avec poussee genrant sortie de piece valide
+d 1 0 ^ ^
+fin

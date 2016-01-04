@@ -1,0 +1,35 @@
+# test si l'introduction dans le cas d'une poussee fenerant une sortie de piece est valide
+
+lit ../test/test_integration/test_integration_01_entree.txt
+
+#introductions de pieces valides sans poussees
+n 3 0 >
+n 3 4 <
+
+#introductions non valides (hors bordures plateau)
+n 1 2 <
+n 1 3 ^
+
+# introductions avec poussée valides
+n 3 0 ^
+n 3 4 v
+
+#changements orientation non valides
+o 1 2 >
+o 4 2 <
+
+#changements orientation valides
+o 3 1 <
+o 3 4 >
+
+#changement orientation impossible car pas le bon animal
+o 3 3 v
+
+#changement orientation valide
+o 3 1 v
+
+#introduction avec poussee valide qui genere une sortie de piece
+n 3 0 ^
+
+fin
+
