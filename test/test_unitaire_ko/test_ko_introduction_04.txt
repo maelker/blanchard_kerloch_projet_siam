@@ -1,0 +1,8 @@
+#test_ko_introduction_04
+#
+# test l'impossibilite d'introduire qui a une direction d'introduction differente de son orientation finale si une piece est deja presente sur la case. (lecture d'un fichier d'entree)
+lit ../test/test_unitaire_ko/test_ko_introduction_04_entree.txt
+n 1 0 >
+fin
+#comportement attendu:
+# le rhinoceros n'a pas pu etre introduit, le plateau n'a pas ete modifie.

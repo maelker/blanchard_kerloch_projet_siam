@@ -1,0 +1,9 @@
+#test_ok_deplacement_04
+#
+# test si il est possible de pousser un rocher et un rhinoceros oriente vers le droite (lecture d'un fichier d'entree)
+lit ../test/test_unitaire_ok/test_ok_deplacement_04_entree.txt
+d 1 1 ^ ^
+fin
+#comportement attendu:
+# l'elephant se deplace d'une case vers le haut et pousse bien le rocher et le rhinoceros.
+

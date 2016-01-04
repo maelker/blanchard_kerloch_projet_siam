@@ -1,0 +1,9 @@
+#test_ok_deplacement_06
+#
+# test si il est possible de pousser un rhinoceros vers le droite avec l'aide de deux elephants si le rhinoceros est oriente vers la gauche (lecture d'un fichier d'entree)
+lit ../test/test_unitaire_ok/test_ok_deplacement_06_entree.txt
+d 1 1 > >
+fin
+#comportement attendu:
+# les elephants se deplacent d'une case vers la droite et pousse bien le rhinoceros.
+

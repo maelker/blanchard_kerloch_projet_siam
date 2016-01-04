@@ -1,0 +1,9 @@
+#test_ok_deplacement_05
+#
+# test si il est possible de pousser deux rochers vers le droite avec l'aide de deux elephants (lecture d'un fichier d'entree)
+lit ../test/test_unitaire_ok/test_ok_deplacement_05_entree.txt
+d 0 2 > >
+fin
+#comportement attendu:
+# les elephants se deplacent d'une case vers la droite et pousse bien les deux rochers.
+

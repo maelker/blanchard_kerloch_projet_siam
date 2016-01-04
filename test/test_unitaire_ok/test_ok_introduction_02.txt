@@ -1,0 +1,9 @@
+#test_ok_introduction_02
+#
+# test si il est possible d'introduire un rhinoceros sur une case ou la piece est orientee dans un autre sens que de face. (lecture d'un fichier d'entree)
+lit ../test/test_unitaire_ok/test_ok_introduction_02_entree.txt
+n 1 0 ^
+fin
+#comportement attendu:
+# le rhinoceros a bien ete introduit et a pousse la piece precedement presente.
+

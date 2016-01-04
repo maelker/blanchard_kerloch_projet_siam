@@ -1,0 +1,9 @@
+#test_ok_deplacement_02
+#
+# test si il est possible de pousser un rhinoceros (lecture d'un fichier d'entree)
+lit ../test/test_unitaire_ok/test_ok_deplacement_02_entree.txt
+d 0 1 ^ ^
+fin
+#comportement attendu:
+# l'elephant se deplace d'une case vers le haut et pousse bien le rhinoceros.
+

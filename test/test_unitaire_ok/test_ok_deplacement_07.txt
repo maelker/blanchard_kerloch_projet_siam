@@ -1,0 +1,9 @@
+#test_ok_deplacement_07
+#
+# test si il est possible de sortir une piece du plateau si elle est sur la bordure de celui-ci. (lecture d'un fichier d'entree)
+lit ../test/test_unitaire_ok/test_ok_deplacement_07_entree.txt
+d 4 1 > >
+fin
+#comportement attendu:
+# l'elephants est sortie du plateau, il est donc vide.
+

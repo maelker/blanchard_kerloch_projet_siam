@@ -1,0 +1,9 @@
+#test_unitaire_ko_chgt_orientation_04
+#
+# test l'interdiction de changer l'orientation d'une piece de son adversaire.
+lit ../test/test_unitaire_ko/test_ko_chgt_orientation_04_entree.txt
+o 3 2 ^
+fin
+#Comportement attendu:
+# le rhinoceros n'a pas change d'orientation.
+
