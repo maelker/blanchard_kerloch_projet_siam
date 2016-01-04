@@ -1,0 +1,9 @@
+#test_unitaire_ko_introduction
+#
+# test l'interdiction d'introduire une piece ou une piece adverse est deja presente dans le sens de sortie.
+lit ../test/test_unitaire_ko/test_ko_introduction_entree.txt
+n 2 0 ^
+fin
+#Comportement attendu:
+# l'elephant et le rhinoceros sont face a face, aucune piece ne doit bouger, le mouvement est invalide.
+

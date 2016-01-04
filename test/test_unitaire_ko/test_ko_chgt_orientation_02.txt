@@ -1,0 +1,9 @@
+#test_unitaire_ko_chgt_02_orientation
+#
+# test l'interdiction de changer l'orientation d'un rocher.
+i
+o 1 2 ^
+fin
+#Comportement attendu:
+# le rocher aux coordonnees ne doit pas avoir change d'orientation.
+
