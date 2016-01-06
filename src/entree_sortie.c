@@ -171,7 +171,7 @@ void entree_sortie_ecrire_plateau_pointeur_fichier(FILE* identifiant,const plate
         printf("Erreur ouverture du fichier\n");
         exit(1);
     }
-    int x=0;
+    
     const piece_siam* piece_plateau, *piece_presente=*plateau->piece;
     int colonne=0;
     int ligne=0;
@@ -183,15 +183,11 @@ void entree_sortie_ecrire_plateau_pointeur_fichier(FILE* identifiant,const plate
         {
             piece_plateau=&(5*colonne+ligne)[piece_presente];
             //piece_plateau=plateau_obtenir_piece(plateau,colonne,ligne);
-            for(x=0;x<8;++x)
-            {
-                if(x==5)
-                {
-                    fprintf(fid,"%s",type_nommer_nom_cours(piece_plateau->type));
-                    if(piece_plateau->type==elephant || piece_plateau->type==rhinoceros)
-                        fprintf(fid,"-%s",orientation_nommer_nom_cours(piece_plateau->orientation));
-                }
-            }
+            
+            fprintf(fid,"%s",type_nommer_nom_cours(piece_plateau->type));
+            if(piece_plateau->type==elephant || piece_plateau->type==rhinoceros)
+                fprintf(fid,"-%s",orientation_nommer_nom_cours(piece_plateau->orientation));
+            
             fprintf(fid," | ");
         }
         fprintf(fid,"\n");
