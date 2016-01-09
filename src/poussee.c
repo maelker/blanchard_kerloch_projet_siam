@@ -18,10 +18,10 @@ int poussee_etre_valide(const plateau_siam* plateau, int x, int y, orientation_d
   assert(plateau_etre_integre(plateau)==1);
   assert(coordonnees_etre_dans_plateau(x,y)==1);
   assert(orientation_etre_integre_deplacement(orientation)==1);
-  int force_poussee=0;
+  int force_poussee=1;
   int nb_rocher=0;
   
-  while(coordonnees_etre_dans_plateau(x,y)==1 && plateau_exister_piece(plateau,x,y)==1 ) //on continue a se decaler tant qu'il n'y a pas une case vide ou une sortie de plateau
+  while(coordonnees_etre_dans_plateau(x,y)==1 && plateau_exister_piece(plateau,x,y)==1) //on continue a se decaler tant qu'il n'y a pas une case vide ou une sortie de plateau
   {
     //info sur la piece a poussee
     const piece_siam* info_piece=plateau_obtenir_piece_info(plateau,x,y); //renvoie type et orientation de piece a pousse
@@ -48,22 +48,29 @@ int poussee_etre_valide(const plateau_siam* plateau, int x, int y, orientation_d
     {
       force_poussee+=1;
     }
-    
+    //cas 5 de la regle du jeu si les forces sont neurtralisees on ne regarde pas ce quil y a apres
+    if(force_poussee==0 && nb_rocher==0)
+    {
+      return 0;
+    }
     //les test sont finis on applique le deplacement pour passer a la case suivante
     coordonnees_appliquer_deplacement(&x,&y,orientation);
   }
+  // cas 9 de la regle du jeu
+  
+  
   //renvoie de la possibilite de la fonction en considerant les valeurs force_poussee et nb_rocher
   
   if(nb_rocher==0)
   {
-    if(force_poussee > -1)
+    if(force_poussee > 0)
     {
       return 1;
     }
   }
   else
   {
-    if(force_poussee >= -1)
+    if(force_poussee >= 0)
     {
       return 1;
     }
