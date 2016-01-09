@@ -49,6 +49,12 @@ int poussee_etre_valide(const plateau_siam* plateau, int x, int y, orientation_d
       force_poussee+=1;
     }
     //cas 5 de la regle du jeu si les forces sont neurtralisees on ne regarde pas ce quil y a apres
+    
+    if(force_poussee<0)
+    {
+      return 0;
+    }
+    //cas ou des animaux se font faces et se neutralisent
     if(force_poussee==0 && nb_rocher==0)
     {
       return 0;

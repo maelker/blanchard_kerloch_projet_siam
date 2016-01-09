@@ -1,6 +1,6 @@
 #test_unitaire_ko_05_deplacement
 #
-# test si dans le cas d'une poussee, lors de la neutralisation des #forces, le déplacements ne s'effectue pas, meme si une piece derriere #renforce la poussee (cas 5 de la regle du jeu siam)
+# dans le cas d'une poussee, lors de la neutralisation des #forces, le déplacements ne s'effectue pas, meme si une piece derriere #renforce la poussee (cas 5 de la regle du jeu siam)
 lit ../test/test_unitaire_ko/test_ko_deplacement_05_entree.txt
 d 1 1 > >
 fin
