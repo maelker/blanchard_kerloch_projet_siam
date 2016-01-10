@@ -1,0 +1,10 @@
+#test_ko_introduction_05
+
+#test l'impossibilite d'effectuer la poussee lors de l'introdcution dans le cas d'un 3 vs 3
+
+lit ../test/test_unitaire_ko/test_ko_introduction_05_entree.txt
+n 4 4 v
+fin
+
+#comportement attendu:
+# la poussee ne s'effectue pas, l'introduction est donc impossible, le plateau ne change pas.

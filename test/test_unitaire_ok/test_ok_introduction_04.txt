@@ -1,0 +1,11 @@
+#test_ok_introduction_04
+
+#test si lors de l'introduction, la poussee dans la configuration 3 animaux vs (2 animaux + 1 rocher) s'effecue
+
+lit ../test/test_unitaire_ok/test_ok_introduction_04_entree.txt
+n 1 0 ^
+fin
+
+#comportement attendu: 
+#l'introduction de l'elephant en 1 0 denere la sortie de l'elephant en 1 4 apres la poussee
+ 

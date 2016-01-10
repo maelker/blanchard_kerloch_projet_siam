@@ -1,0 +1,9 @@
+#test_unitaire_ko_06_deplacement
+#
+# dans le cas d'une poussee, lors de la neutralisation des #forces, avec un rocher a prendre en compte,le déplacements ne s'effectue pas, meme #si une piece derriere renforce la poussee (cas 5 de la regle du jeu siam)
+
+lit ../test/test_unitaire_ko/test_ko_deplacement_06_entree.txt
+d 1 4 v v
+fin
+#Comportement attendu:
+#Impossibilite de deplacer le rhinoceros, le plateau ne change pas.
