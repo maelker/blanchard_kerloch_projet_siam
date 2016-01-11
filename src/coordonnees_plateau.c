@@ -26,7 +26,7 @@ int coordonnees_etre_bordure_plateau(int x,int y)
  * si pas respecte retorune 0
  */
   
-  if((x>=0 && x<5) || (y>=0 && x<5))
+  if((x>=0 && x<NBR_CASES) || (y>=0 && x<NBR_CASES))
   {
     if(x==0 || y==0 || x==NBR_CASES-1 || y==NBR_CASES-1)
     {
