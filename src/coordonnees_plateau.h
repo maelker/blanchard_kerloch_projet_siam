@@ -51,7 +51,7 @@
 /**
  * La plateau est compose de 5x5 cases
  */
-#define NBR_CASES 5
+#define NBR_CASES 10
 
 /**
  * Fonction coordonnees_etre_dans_plateau:

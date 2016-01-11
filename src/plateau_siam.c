@@ -24,7 +24,7 @@ void plateau_initialiser(plateau_siam* plateau)
     
     assert(plateau!=NULL);
     int kx=0;
-    if(NBR_CASES>=5 && NBR_CASES<10)
+    if(NBR_CASES>=5 && NBR_CASES<=10)
     {
         for(kx=0 ; kx<NBR_CASES ; ++kx)
         {
