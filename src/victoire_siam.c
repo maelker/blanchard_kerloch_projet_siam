@@ -47,9 +47,7 @@ condition_victoire_partie test_victoire(const plateau_siam* plateau_apres_pousse
       {
         condition_victoire.victoire=1;
         condition_victoire_etre_victorieux(&condition_victoire);
-        printf("type %d\n",type);
-        printf("orientaion %d\n",orientation_a_comparer);
-        printf("dire poussee %d\n",direction_poussee);
+
         //on met a joueur le joueur gagnant
         if(type==0)
         {
