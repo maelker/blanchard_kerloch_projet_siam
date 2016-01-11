@@ -41,8 +41,8 @@ void ligne_de_commande_parser(const char* ligne_commande,action_a_realiser* acti
 
     else if(strlen(ligne_commande)>=2 && ligne_commande[0]=='n' && ligne_commande[1]==' ')
     {
-        int x=0;int y=0;char dir='\0';
-        if(sscanf(ligne_commande,"n %d %d %c",&x,&y,&dir)==3)
+        int x=0;int y=0;char dir='\0';char plus='\0';
+        if(sscanf(ligne_commande,"n %d %d %c %c",&x,&y,&dir,&plus)==3)
         {
             if(orientation_caractere_etre_integre(dir))
             {
@@ -59,8 +59,8 @@ void ligne_de_commande_parser(const char* ligne_commande,action_a_realiser* acti
 
     else if(strlen(ligne_commande)>=2 && ligne_commande[0]=='d' && ligne_commande[1]==' ')
     {
-        int x=0;int y=0;char dir='\0';char ori='\0';
-        if(sscanf(ligne_commande,"d %d %d %c %c",&x,&y,&dir,&ori)==4)
+        int x=0;int y=0;char dir='\0';char ori='\0';char plus='\0';
+        if(sscanf(ligne_commande,"d %d %d %c %c %c",&x,&y,&dir,&ori,&plus)==4)
         {
             if(orientation_caractere_etre_integre(dir) && orientation_caractere_etre_integre(ori))
             {
@@ -79,8 +79,8 @@ void ligne_de_commande_parser(const char* ligne_commande,action_a_realiser* acti
 
     else if(strlen(ligne_commande)>=2 && ligne_commande[0]=='o' && ligne_commande[1]==' ')
     {
-        int x=0;int y=0;char dir=0;
-        if(sscanf(ligne_commande,"o %d %d %c",&x,&y,&dir)==3)
+        int x=0;int y=0;char dir=0;char plus='\0';
+        if(sscanf(ligne_commande,"o %d %d %c %c",&x,&y,&dir,&plus)==3)
         {
             if(orientation_caractere_etre_integre(dir))
             {

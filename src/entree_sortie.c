@@ -1,4 +1,5 @@
 #include "entree_sortie.h"
+#include "plateau_siam.h"
 
 
 #include <stdio.h>
@@ -102,17 +103,17 @@ void entree_sortie_lire_jeu_fichier(const char* filename,jeu_siam* jeu)
 	*nouveau_joueur=1;
       else 
       {
-	char piece_presente[5][100];
-	if(sscanf(ligne_texte,"[%d] %s | %s | %s | %s | %s |",&ligne,piece_presente[0],piece_presente[1],piece_presente[2],piece_presente[3],piece_presente[4])==6)
+	char piece_presente[NBR_ANIMAUX][100];
+	if(sscanf(ligne_texte,"[%d] %s | %s | %s | %s | %s |",&ligne,piece_presente[0],piece_presente[1],piece_presente[2],piece_presente[3],piece_presente[4])==NBR_CASES+1)
 	{
-	  if(ligne<0||ligne>4)
+	  if(ligne<0||ligne>NBR_CASES-1)
 	  {
 	    puts("Erreur lecture numero de ligne");
 	    abort();
 	  }
 	  int colonne=0;
 	  piece_siam *piece_intermediaire;
-	  for(colonne=0;colonne<5;++colonne)
+	  for(colonne=0;colonne<NBR_CASES;++colonne)
 	  {
 	    piece_intermediaire=plateau_obtenir_piece(&jeu->plateau,colonne,ligne);
 	    *piece_intermediaire=piece_correspondre_nom_cours(colonne[piece_presente]);
@@ -173,7 +174,7 @@ void entree_sortie_ecrire_plateau_pointeur_fichier(FILE* identifiant,const plate
   fprintf(fid,"    ");
   
   colonne=0;
-  for(colonne=0;colonne<5;++colonne)
+  for(colonne=0;colonne<NBR_CASES;++colonne)
   {
     fprintf(fid,"[%d]   ",colonne);
   }

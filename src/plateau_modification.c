@@ -21,7 +21,7 @@ int plateau_modification_introduire_piece_etre_possible(const plateau_siam* plat
   
   if(coordonnees_etre_bordure_plateau(x,y)==1)
   {
-    if(plateau_denombrer_type(plateau,type)<5)
+    if(plateau_denombrer_type(plateau,type)<NBR_ANIMAUX)
     {
       // cas classique sans poussee
       if(plateau_exister_piece(plateau,x,y)==0)
@@ -31,7 +31,7 @@ int plateau_modification_introduire_piece_etre_possible(const plateau_siam* plat
       else // cas de la poussee
       {
 	//verification que l orientation de la piece correspond a la direction d introduction de la piece
-	if((x==0 && orientation==droite) || (x==4 && orientation==gauche) || (y==0 && orientation==haut) || (y==4 && orientation==bas))
+	if((x==0 && orientation==droite) || (x==NBR_CASES-1 && orientation==gauche) || (y==0 && orientation==haut) || (y==NBR_CASES-1 && orientation==bas))
 	{
 	  if(poussee_etre_valide(plateau, x, y, orientation)==1)
 	  {
@@ -140,7 +140,7 @@ int plateau_modification_deplacer_piece_etre_possible(const plateau_siam* platea
   assert(animal==1);
   
   //cas de sortie d une piece en bord de plateau
-  if((x0==0 && direction_deplacement==gauche) || (x0==4 && direction_deplacement==droite) || (y0==0 && direction_deplacement==bas) || (y0==4 && direction_deplacement==haut))
+  if((x0==0 && direction_deplacement==gauche) || (x0==NBR_CASES-1 && direction_deplacement==droite) || (y0==0 && direction_deplacement==bas) || (y0==NBR_CASES-1 && direction_deplacement==haut))
   {
     return 1;
   }
@@ -196,7 +196,7 @@ void plateau_modification_deplacer_piece(plateau_siam* plateau, int x0,int y0, o
   info_piece_depart->orientation=aucune_orientation; //elimination de orientation
   
   //cas de sortie de piece du plateau
-  if((x0==0 && direction_deplacement==gauche) || (x0==4 && direction_deplacement==droite) || (y0==0 && direction_deplacement==bas) || (y0==4 && direction_deplacement==haut))
+  if((x0==0 && direction_deplacement==gauche) || (x0==NBR_CASES-1 && direction_deplacement==droite) || (y0==0 && direction_deplacement==bas) || (y0==NBR_CASES-1 && direction_deplacement==haut))
   {  
     puts("piece sortie du plateau");
   }
