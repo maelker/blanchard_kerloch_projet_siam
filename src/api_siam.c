@@ -23,7 +23,7 @@ coup_jeu api_siam_tenter_introduire_nouvelle_piece_si_possible(jeu_siam* jeu, in
       if(coordonnees_etre_bordure_plateau(x,y)==1)
       {
 	type_piece type=joueur_obtenir_animal(jeu->joueur);
-	if (plateau_denombrer_type(&(jeu->plateau),type)<5)
+	if (plateau_denombrer_type(&(jeu->plateau),type)<NBR_ANIMAUX)
 	{
 	  if(plateau_modification_introduire_piece_etre_possible(&(jeu->plateau),x,y,type,orientation)==1)
 	  {
