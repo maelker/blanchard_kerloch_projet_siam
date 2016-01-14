@@ -2,7 +2,6 @@
 #include "api_siam.h"
 #include "parseur_mode_interactif.h"
 #include "entree_sortie.h"
-//#include "menu.h"
 
 
 #include <stdio.h>
@@ -156,6 +155,8 @@ void mode_interactif_introduire_nouvelle_piece(jeu_siam* jeu,int x,int y,orienta
             if(coup_etre_victorieux(&coup))
             {
                 coup_afficher_victoire(&coup);
+                puts("");
+                jeu_afficher(jeu);
                 *victoire=1;
             }
         }
@@ -183,6 +184,8 @@ void mode_interactif_deplacer_piece(jeu_siam* jeu,int x,int y,orientation_deplac
             if(coup_etre_victorieux(&coup))
             {
                 coup_afficher_victoire(&coup);
+                puts("");
+                jeu_afficher(jeu);
                 *victoire=1;
             }
         }
