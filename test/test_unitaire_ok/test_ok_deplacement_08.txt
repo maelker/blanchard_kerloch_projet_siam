@@ -1,0 +1,8 @@
+#test_ok_deplacement_08
+#
+# test si le message de victoire s'affiche
+lit ../test/test_unitaire_ok/test_ok_deplacement_07_entree.txt
+d 4 1 > >
+fin
+#comportement attendu:
+# la poussee se realise et ca affiche victoire

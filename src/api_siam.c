@@ -6,6 +6,8 @@
 #include "plateau_siam.h"
 #include "joueur.h"
 #include "poussee.h"
+#include "victoire_siam.h"
+#include "condition_victoire_partie.h"
 
 #include <assert.h>
 #include <stdlib.h>
@@ -26,10 +28,15 @@ coup_jeu api_siam_tenter_introduire_nouvelle_piece_si_possible(jeu_siam* jeu, in
 	if (plateau_denombrer_type(&(jeu->plateau),type)<NBR_ANIMAUX)
 	{
 	  if(plateau_modification_introduire_piece_etre_possible(&(jeu->plateau),x,y,type,orientation)==1)
-	  {
+      {
 	    plateau_modification_introduire_piece(&(jeu->plateau),x,y,type,orientation);
+	    
+        //test de victoire
+        condition_victoire_partie condition = test_victoire(&(jeu->plateau),x,y); // x et y represente la piece a l'origine de la poussee
+        coup.condition_victoire=condition;
+
 	    coup.valide=1;
-	    joueur_changer(&(jeu->joueur));	  
+	    joueur_changer(&(jeu->joueur));
 	  }
 	  else
 	  {
@@ -56,6 +63,7 @@ coup_jeu api_siam_tenter_introduire_nouvelle_piece_si_possible(jeu_siam* jeu, in
     puts("le jeu est non integre");
   }
   
+  
   return coup; //retourne 0 par défault car coup initialise à 0
   
 }
@@ -66,22 +74,32 @@ coup_jeu api_siam_tenter_deplacer_piece_si_possible(jeu_siam* jeu, int x, int y,
   assert(jeu_etre_integre(jeu)==1);
   coup_jeu coup;
   coup_jeu_initialiser(&coup);
+  
   if(coordonnees_etre_dans_plateau(x,y)==1)
   {
     if(plateau_exister_piece(&(jeu->plateau),x,y)==1)
     {
       piece_siam *info_piece=plateau_obtenir_piece(&(jeu->plateau),x,y); //renvoie type et orientation de piece a deplacer
       type_piece type=info_piece->type; //selectionne le type
- 
+      
       if(type_etre_animal(type)==1)
       {
 	if(joueur_etre_type_animal(jeu->joueur,type)==1)
 	{
 	  if(plateau_modification_deplacer_piece_etre_possible(&(jeu->plateau),x,y,deplacement,orientation)==1)
 	  {
-	      plateau_modification_deplacer_piece(&(jeu->plateau),x,y,deplacement,orientation);
-	      coup.valide=1;
-	      joueur_changer(&(jeu->joueur));
+	    //on effectue le deplacement avec l'eventuelle poussee
+	    plateau_modification_deplacer_piece(&(jeu->plateau),x,y,deplacement,orientation);
+
+        //on applique le deplacement car le decalge de poussee a deja ete effectue
+        coordonnees_appliquer_deplacement(&x,&y,deplacement);
+
+        //test de victoire
+        condition_victoire_partie condition = test_victoire(&(jeu->plateau),x,y); // x et y represente la piece a l'origine de la poussee
+        coup.condition_victoire=condition;
+
+	    coup.valide=1;
+	    joueur_changer(&(jeu->joueur));	    
 	  }
 	  else
 	  {

@@ -2,7 +2,7 @@
 #include "api_siam.h"
 #include "parseur_mode_interactif.h"
 #include "entree_sortie.h"
-#include "menu.h"
+//#include "menu.h"
 
 
 #include <stdio.h>

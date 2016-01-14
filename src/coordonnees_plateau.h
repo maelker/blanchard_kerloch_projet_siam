@@ -51,6 +51,7 @@
 /**
  * La plateau est compose de 5x5 cases
  */
+
 #define NBR_CASES 5
 
 /**
