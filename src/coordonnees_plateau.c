@@ -80,7 +80,13 @@ void coordonnees_appliquer_deplacement(int* x,int* y,orientation_deplacement ori
     }
 }
 
-
+void definir_taille_plateau()
+{
+    int taille_plateau=0;
+    puts("saisissez la taille du plateau (exemple 5 pour un plateau 5 par 5)");
+    scanf(" %d",&taille_plateau);
+    printf("taille= %d\n",taille_plateau);
+}
 
 
 
