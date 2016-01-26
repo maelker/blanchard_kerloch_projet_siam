@@ -5,11 +5,6 @@
 
 int main()
 { 
-    
-//   test_lancement();
-
   mode_interactif_lancer();
-  
   return 0;
-  
 }

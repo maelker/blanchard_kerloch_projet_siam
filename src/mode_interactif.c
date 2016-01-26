@@ -39,7 +39,7 @@ void mode_interactif_lancer()
     mode_interactif_sauvegarder_jeu_fichier(&jeu);
     
     char buffer_ligne_commande[MAX_NOM_FICHIER_TAILLE];
-    
+    puts("Pour rentrer dans cette grande aventure, appuyez sur entrée !!");
     int n=0;
     do
     {
@@ -69,7 +69,7 @@ void mode_interactif_lancer()
         }
         n=1;
     }while(n==0);
-    
+    puts("Bon courage");
     do
     {
         
