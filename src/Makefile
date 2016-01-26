@@ -34,6 +34,6 @@ fonction_test.o: fonction_test.c fonction_test.h piece_siam.h plateau_siam.h typ
 poussee.o: poussee.c poussee.h api_siam.h plateau_modification.h coordonnees_plateau.h jeu_siam.h piece_siam.h plateau_siam.h joueur.h
 victoire_siam.o: victoire_siam.c victoire_siam.h condition_victoire_partie.h joueur.h
 
-
+# Deuxieme action realisee :
 clean:
-	rm -f *.o *~ jeu_siam
+	rm -f *.o *~ jeu_siam # ici "rm" supprime tous les fichiers ".o", tous les fichiers terminant par "~" et le fichier jeu_siam.
