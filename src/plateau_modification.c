@@ -31,7 +31,7 @@ int plateau_modification_introduire_piece_etre_possible(const plateau_siam* plat
       else // cas de la poussee
       {
 	//verification que l orientation de la piece correspond a la direction d introduction de la piece
-	if((x==0 && orientation==droite) || (x==NBR_CASES-1 && orientation==gauche) || (y==0 && orientation==haut) || (y==NBR_CASES-1 && orientation==bas))
+    if((x==0 && orientation==droite) || (x==NBR_CASES-1 && orientation==gauche) || (y==0 && orientation==haut) || (y==NBR_CASES-1 && orientation==bas))
 	{
 	  if(poussee_etre_valide(plateau, x, y, orientation)==1)
 	  {
@@ -71,7 +71,7 @@ void plateau_modification_introduire_piece(plateau_siam* plateau, int x,int y, t
   //cas de la poussee
   if(plateau_exister_piece(plateau,x,y)==1)
   {
-    if(poussee_etre_valide(plateau, x, y, orientation==1)) //poussee possible
+    if(poussee_etre_valide(plateau, x, y, orientation)==1) //poussee possible
     {
       poussee_realiser(plateau, x, y, orientation);
     }
