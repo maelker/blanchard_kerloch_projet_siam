@@ -47,8 +47,7 @@
  *      - Un pointeur non NULL vers une condition_victoire_partie non
  *         modifiable.
  *    Garantie:
- *      - Un retour valant 1 si la structure est integre.
- *      - Un retour valant 0 sinon.
+ *      - une structure condition mise à jour, càd joueur gangant à jour et victoire égal 1
  */
 condition_victoire_partie test_victoire(const plateau_siam* plateau_apres_poussee,int x,int y);
 

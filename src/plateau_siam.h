@@ -68,7 +68,7 @@
  *  Le jeu du siam contient 5 animaux de chaque type.
  *  (5 elephants, et 5 rhinoceros).
  */
-#define NBR_ANIMAUX 0
+#define NBR_ANIMAUX 5
 
 
 
