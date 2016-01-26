@@ -15,7 +15,7 @@ jeu_siam: $(OBJ)
 	cp jeu_siam ../bin/ # Copie le fichier "jeu_siam" dans le dossier bin tout juste cree ou deja existant.
 
 # Cree les liens entre les fichiers ".o" crees precedement avec son ".c" et avec les fichiers ".h" relies au ".c".
-api_siam.o: api_siam.c api_siam.h plateau_modification.h coordonnees_plateau.h jeu_siam.h piece_siam.h plateau_siam.h joueur.h
+api_siam.o: api_siam.c api_siam.h plateau_modification.h coordonnees_plateau.h jeu_siam.h piece_siam.h plateau_siam.h joueur.h condition_victoire_partie.h
 condition_victoire_partie.o: condition_victoire_partie.c condition_victoire_partie.h joueur.h
 coordonnees_plateau.o: coordonnees_plateau.c coordonnees_plateau.h
 coup_jeu.o: coup_jeu.c coup_jeu.h

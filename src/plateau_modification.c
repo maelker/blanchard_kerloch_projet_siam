@@ -192,8 +192,7 @@ void plateau_modification_deplacer_piece(plateau_siam* plateau, int x0,int y0, o
   type_piece type=info_piece_depart->type; //selection du type de la piece car on va vider la case
   
   //on vide la case
-  info_piece_depart->type=case_vide; //liberation de case
-  info_piece_depart->orientation=aucune_orientation; //elimination de orientation
+  piece_definir_case_vide(info_piece_depart);
   
   //cas de sortie de piece du plateau
   if((x0==0 && direction_deplacement==gauche) || (x0==NBR_CASES-1 && direction_deplacement==droite) || (y0==0 && direction_deplacement==bas) || (y0==NBR_CASES-1 && direction_deplacement==haut))

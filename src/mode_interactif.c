@@ -28,9 +28,7 @@ void mode_interactif_lancer()
     puts("directions possibles: gauche <, droite >, haut ^, bas v.");
     printf("***********************\n\n");
     fflush(stdout);
-    
-    
-    
+
     int victoire=0;
     jeu_siam jeu;
     jeu_initialiser(&jeu);
@@ -46,8 +44,6 @@ void mode_interactif_lancer()
     do
     {
         fflush(stdout);
-        printf("Lancez-vous dans cette grande aventure (appuyez sur 'entrée') :  ");
-        
         fgets(buffer_ligne_commande,MAX_LIGNE_COMMANDE,stdin);
         ligne_de_commande_parser(buffer_ligne_commande,&action);
         switch(action.type_action)
@@ -69,7 +65,6 @@ void mode_interactif_lancer()
                 printf("Fin de la partie\n");fflush(stdout);
                 break;
             default:
-                puts("\nBon courage =D\n");fflush(stdout);
                 break;
         }
         n=1;

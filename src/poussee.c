@@ -114,8 +114,7 @@ void poussee_realiser(plateau_siam* plateau, int x, int y, orientation_deplaceme
       piece_siam* info_piece=plateau_obtenir_piece(plateau,x,y); //renvoie type et orientation de piece a deplace
       
       // on rend la case vide
-      info_piece->type=case_vide;
-      info_piece->orientation=aucune_orientation;
+      piece_definir_case_vide(info_piece);
     }
     else
     {
@@ -134,8 +133,7 @@ void poussee_realiser(plateau_siam* plateau, int x, int y, orientation_deplaceme
 	type_piece orientation_piece_a_poussee=info_piece->orientation;
 	
 	// on rend la case vide
-	info_piece->type=case_vide;
-	info_piece->orientation=aucune_orientation;     
+    piece_definir_case_vide(info_piece);
 	
 	//on applique le deplacement dans le sens de la pousse
 	coordonnees_appliquer_deplacement(&x,&y,orientation);

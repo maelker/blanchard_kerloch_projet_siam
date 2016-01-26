@@ -24,7 +24,7 @@ void plateau_initialiser(plateau_siam* plateau)
     
     assert(plateau!=NULL);
     int kx=0;
-    if(NBR_CASES>=5 && NBR_CASES<=10)
+    if(NBR_CASES>=5 && NBR_CASES<=9 && NBR_CASES%2==1)
     {
         for(kx=0 ; kx<NBR_CASES ; ++kx)
         {
@@ -33,26 +33,21 @@ void plateau_initialiser(plateau_siam* plateau)
             {
                 piece_siam* piece=plateau_obtenir_piece(plateau,kx,ky);
                 assert(piece!=NULL);
-                if(NBR_CASES%2==0)
-                {
-                    if(ky==(NBR_CASES/2-1) && (kx>=(NBR_CASES)/2-1 && kx<=(NBR_CASES)/2+1))
-                        piece_definir_rocher(piece);
-                    else
-                        piece_definir_case_vide(piece);
-                }
+
+                if(ky==(NBR_CASES/2) && (kx>=(NBR_CASES)/2-1 && kx<=(NBR_CASES)/2+1))
+                     piece_definir_rocher(piece);
                 else
-                {
-                    if(ky==((NBR_CASES-1)/2) && (kx>=(NBR_CASES-3)/2 && kx<=(NBR_CASES+1)/2))
-                        piece_definir_rocher(piece);
-                    else
-                        piece_definir_case_vide(piece);
-                }
+                     piece_definir_case_vide(piece);
+
             }
         }
-        assert(plateau_etre_integre(plateau));
     }
     else
-        printf("Le plateau ne peut avoir moins de 5 cases ou plus de 10 cases.");
+    {
+        printf("Le plateau ne peut avoir moins de 5 cases ou plus de 9 cases et le nombre de case doit etre impair.");
+        abort();
+    }
+
 }
 
 int plateau_etre_integre(const plateau_siam* plateau)
