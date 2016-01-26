@@ -61,7 +61,7 @@
 /**
  *  Le jeu du siam contient 3 rochers
  */
-#define NBR_ROCHERS 3
+#define NBR_ROCHERS 4
 
 
 /**
