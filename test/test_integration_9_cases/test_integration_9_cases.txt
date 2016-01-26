@@ -1,0 +1,11 @@
+#Test une suite de mouvements dont certains sont invalides
+i
+n 4 0 ^
+n 6 3 <
+n 8 6 <
+d 4 0 ^ ^
+n 3 8 v
+n 8 6 ^
+n 8 6 <
+fin
+

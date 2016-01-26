@@ -55,7 +55,7 @@ void definir_taille_plateau();
  */
 
 
-#define NBR_CASES 5
+#define NBR_CASES 9
 
 
 
