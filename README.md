@@ -1,8 +1,8 @@
-SIAM GAME
+# SIAM GAME
 
 	2v2 board game
 
-CONFIG AND LAUNCHING
+## CONFIG AND LAUNCHING
 
 	You need to have gcc, make and glut installed
 	On Linux:
@@ -17,7 +17,7 @@ CONFIG AND LAUNCHING
 
 	You are ready to go!
 
-RULE
+## RULE
 
 	1 player plays the rhinoceros, the other one the elephants
 	First one who pushes a rock out of the board wins
@@ -26,12 +26,12 @@ RULE
 	You can push an opponent piece if you are oriented in its direction
 	If the opponent piece is facing yours then you need 2 pieces to push it
 
-SET UP
+## SET UP
 
 	The 3 rocks in the middle of the board
 	All the rhinoceros and elephants out of the board
 
-CONTROLS
+## CONTROLS
 
 	To introduce a piece:
 	n postionX positionY MoveDirection Orientation
